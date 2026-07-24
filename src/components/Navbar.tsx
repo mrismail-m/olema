@@ -7,6 +7,7 @@ import styles from "./Navbar.module.css";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [splashFinished, setSplashFinished] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,12 +59,33 @@ export default function Navbar() {
                 <div className={styles.progressBar}></div>
               </div>
             )}
-            <Link href="#contact" className={styles.contactBtn}>
-              Contact Us
-            </Link>
+            <div className={styles.desktopContact}>
+              <Link href="#contact" className={styles.contactBtn}>
+                Contact Us
+              </Link>
+            </div>
+            <button 
+              className={`${styles.mobileMenuBtn} ${isMobileMenuOpen ? styles.menuOpen : ""}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </header>
+      
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}>
+        <nav className={styles.mobileNavLinks}>
+          <Link href="#agents" onClick={() => setIsMobileMenuOpen(false)}>Agents</Link>
+          <Link href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</Link>
+          <Link href="#security" onClick={() => setIsMobileMenuOpen(false)}>Security</Link>
+          <Link href="#faqs" onClick={() => setIsMobileMenuOpen(false)}>FAQs</Link>
+          <Link href="#contact" className={styles.mobileContactBtn} onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+        </nav>
+      </div>
     </>
   );
 }

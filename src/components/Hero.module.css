@@ -9,6 +9,13 @@
   text-align: center;
 }
 
+@media (max-width: 767px) {
+  .hero {
+    padding: 120px 1.5rem 80px;
+    min-height: auto;
+  }
+}
+
 .backgroundEffects {
   position: absolute;
   top: 0;
@@ -18,13 +25,7 @@
   z-index: -1;
   background-color: #c1ff72;
   background-image: radial-gradient(circle at 50% 50%, #c1ff72 0%, #c1ff72 8.7%, #c8ff80 11.3%, #c8ff80 18.7%, #cfff8e 21.3%, #cfff8e 28.7%, #d6ff9c 31.3%, #d6ff9c 38.7%, #dcffaa 41.3%, #dcffaa 48.7%, #e3ffb8 51.3%, #e3ffb8 58.7%, #eaffc6 61.3%, #eaffc6 68.7%, #f1ffd4 71.3%, #f1ffd4 78.7%, #f8ffe2 81.3%, #f8ffe2 88.7%, #ffffff 91.3%, #ffffff 100%);
-  opacity: 0;
-  animation: fadeBg 1.5s ease 1.2s forwards;
-}
-
-@keyframes fadeBg {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  opacity: 1;
 }
 
 .container {
@@ -58,13 +59,19 @@
 }
 
 .title {
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 1.1;
   font-weight: 800;
   letter-spacing: -0.04em;
   margin-bottom: 2.5rem;
   color: var(--foreground);
   animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s both;
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .subtitleWrapper {
@@ -84,6 +91,13 @@
   max-width: 650px;
 }
 
+@media (max-width: 767px) {
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 .subtext {
   font-size: 0.95rem;
   font-style: italic;
@@ -96,16 +110,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: stretch;
+  gap: 1rem;
   margin-top: 1rem;
   animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .actions {
     flex-direction: row;
     gap: 2rem;
+    align-items: center;
+    width: auto;
   }
 }
 
@@ -119,8 +136,9 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   border: 1px solid transparent;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }
@@ -152,7 +170,8 @@
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.95rem;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.4rem;
   position: relative;
@@ -171,3 +190,4 @@
 .secondaryBtn:hover .arrow {
   transform: translateX(4px);
 }
+
