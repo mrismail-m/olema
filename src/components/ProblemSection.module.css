@@ -1,6 +1,6 @@
 .problemSection {
   padding: 120px 2rem;
-  background-color: var(--background);
+  background-color: transparent;
   color: var(--foreground);
 }
 
