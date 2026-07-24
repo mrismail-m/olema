@@ -23,8 +23,15 @@
   height: calc(100% + 200px);
   z-index: -1;
   background-color: #c1ff72;
-  background-image: radial-gradient(circle at 50% 50%, #c1ff72 0%, #c1ff72 8.7%, #c8ff80 11.3%, #c8ff80 18.7%, #cfff8e 21.3%, #cfff8e 28.7%, #d6ff9c 31.3%, #d6ff9c 38.7%, #dcffaa 41.3%, #dcffaa 48.7%, #e3ffb8 51.3%, #e3ffb8 58.7%, #eaffc6 61.3%, #eaffc6 68.7%, #f1ffd4 71.3%, #f1ffd4 78.7%, #f8ffe2 81.3%, #f8ffe2 88.7%, #ffffff 91.3%, #ffffff 100%);
+  --bg-center-y: 380px;
+  background-image: radial-gradient(circle at 50% var(--bg-center-y), #c1ff72 0%, #c1ff72 8.7%, #c8ff80 11.3%, #c8ff80 18.7%, #cfff8e 21.3%, #cfff8e 28.7%, #d6ff9c 31.3%, #d6ff9c 38.7%, #dcffaa 41.3%, #dcffaa 48.7%, #e3ffb8 51.3%, #e3ffb8 58.7%, #eaffc6 61.3%, #eaffc6 68.7%, #f1ffd4 71.3%, #f1ffd4 78.7%, #f8ffe2 81.3%, #f8ffe2 88.7%, #ffffff 91.3%, #ffffff 100%);
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .backgroundEffects {
+    --bg-center-y: 280px;
+  }
 }
 
 .backgroundEffects::after {

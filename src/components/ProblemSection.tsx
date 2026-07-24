@@ -1,4 +1,15 @@
 import styles from "./ProblemSection.module.css";
+import InboxCard from "./InboxCard";
+
+const fakeChats = Array.from({ length: 30 }).map((_, i) => {
+  const hours = Math.floor(i / 2) + 1;
+  return { 
+    title: i % 3 === 0 ? "John Doe" : i % 3 === 1 ? "Acme Corp" : "Sarah Smith",
+    message: i % 3 === 0 ? "I'd like to book a demo..." : i % 3 === 1 ? "What are your pricing plans?" : "Can you help me set up?",
+    time: i === 0 ? "just now" : i === 1 ? "2m ago" : i === 2 ? "5m ago" : `${hours}h ago`,
+    avatar: `https://i.pravatar.cc/150?u=${i + 100}`,
+  };
+});
 
 export default function ProblemSection() {
   return (
@@ -22,35 +33,7 @@ export default function ProblemSection() {
         <div className={styles.cardsGrid}>
           {/* Card 1 */}
           <div className={styles.card}>
-            <div className={styles.cardVisual}>
-              <div className={styles.cardNumber}>01</div>
-              
-              {/* Wireframe Diagram for Card 1 */}
-              <div className={styles.diagramLeads}>
-                <div className={styles.nodeApp}>
-                  <div className={styles.nodeIcon}>⬡</div>
-                  <span>Your App</span>
-                </div>
-                <div className={styles.connectionLines}>
-                  <div className={styles.line}></div>
-                  <div className={styles.line}></div>
-                  <div className={styles.line}></div>
-                  <div className={styles.pulseDot}></div>
-                </div>
-                <div className={styles.nodeGroup}>
-                  <div className={styles.nodeAppSmall}>
-                    <span>WhatsApp</span>
-                  </div>
-                  <div className={styles.nodeAppSmall}>
-                    <span>Slack</span>
-                  </div>
-                  <div className={styles.nodeAppSmall}>
-                    <span>Gmail</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            <InboxCard fakeChats={fakeChats} />
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>You're losing 73% of your leads</h3>
               <p className={styles.cardText}>
@@ -61,35 +44,20 @@ export default function ProblemSection() {
 
           {/* Card 2 */}
           <div className={styles.card}>
-            <div className={styles.cardVisual}>
-              <div className={styles.cardNumber}>02</div>
-              
-              {/* Wireframe Terminal for Card 2 */}
-              <div className={styles.diagramTerminal}>
-                <div className={styles.terminalHeader}>
-                  <span className={styles.dot}></span>
-                  <span className={styles.dot}></span>
-                  <span className={styles.dot}></span>
-                </div>
-                <div className={styles.terminalBody}>
-                  <div className={styles.termLine}>
-                    <span className={styles.termTime}>18:02:52</span> <span className={styles.termCmd}>POST /send</span> <span className={styles.termError}>303 Failed</span>
-                  </div>
-                  <div className={styles.termLine}>
-                    <span className={styles.termTime}>18:02:53</span> <span className={styles.termCmd}>POST /send</span> <span className={styles.termDots}>...</span>
-                  </div>
-                  <div className={styles.termLine}>
-                    <span className={styles.termTime}>18:02:54</span> <span className={styles.termCmd}>POST /send</span> <span className={styles.termDots}>...</span>
-                  </div>
-                  <div className={styles.termLine}>
-                    <span className={styles.termTime}>18:02:55</span> <span className={styles.termCmd}>POST /send</span> <span className={styles.termDots}>...</span>
-                  </div>
-                </div>
-                <div className={styles.errorPopup}>
-                  <span className={styles.errorIcon}>⚠</span> Delivery Error
-                </div>
+            <div className={`${styles.cardVisual} ${styles.cardVisualAdmin}`}>
+              <div className={styles.windowApp}>
+                <div className={styles.winTitle}>Data.csv</div>
+                <div className={styles.winRow}>John Doe</div>
+                <div className={styles.winRow}>Jane Smith</div>
+                <div className={styles.winRow}>Acme Corp</div>
               </div>
-
+              <div className={styles.cursorArrow}>↗</div>
+              <div className={styles.windowApp}>
+                <div className={styles.winTitle}>CRM</div>
+                <div className={styles.winRowEmpty}></div>
+                <div className={styles.winRowEmpty}></div>
+                <div className={styles.winRowEmpty}></div>
+              </div>
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>You could get back 2,400+ hours a year</h3>
@@ -101,29 +69,18 @@ export default function ProblemSection() {
 
           {/* Card 3 */}
           <div className={styles.card}>
-            <div className={styles.cardVisual}>
-              <div className={styles.cardNumber}>03</div>
-              
-              {/* Wireframe Network for Card 3 */}
-              <div className={styles.diagramNetwork}>
-                <div className={styles.hubContainer}>
-                  <div className={styles.hubNode}>👤</div>
-                  <div className={styles.spokeLine} style={{ transform: 'rotate(0deg)' }}></div>
-                  <div className={styles.spokeLine} style={{ transform: 'rotate(120deg)' }}></div>
-                  <div className={styles.spokeLine} style={{ transform: 'rotate(240deg)' }}></div>
-                  
-                  <div className={styles.spokeNode} style={{ transform: 'translate(50px, -40px)' }}>
-                    <span>Twilio</span>
-                  </div>
-                  <div className={styles.spokeNode} style={{ transform: 'translate(60px, 40px)' }}>
-                    <span>WhatsApp</span>
-                  </div>
-                  <div className={styles.spokeNode} style={{ transform: 'translate(-50px, 20px)' }}>
-                    <span>Slack</span>
-                  </div>
-                </div>
+            <div className={`${styles.cardVisual} ${styles.cardVisualErrors}`}>
+              <div className={styles.dbBox}>
+                <div className={styles.dbTitle}>Stripe</div>
+                <div className={styles.dbData}>$1,500.00</div>
               </div>
-
+              <div className={styles.errorArrow}>
+                <div className={styles.redX}>❌</div>
+              </div>
+              <div className={styles.dbBox}>
+                <div className={styles.dbTitle}>Quickbooks</div>
+                <div className={styles.dbDataErr}>$15.00</div>
+              </div>
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>You could cut data errors by 99.2%</h3>
