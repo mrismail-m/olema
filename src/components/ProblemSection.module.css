@@ -353,56 +353,144 @@
 
 /* Card 2 Visuals - Admin */
 
+.cardVisualAdmin {
+  perspective: 800px;
+}
+
 .windowApp {
-  width: 90px;
-  background: var(--background);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 0.5rem;
+  width: 130px;
+  background: rgba(128, 128, 128, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: absolute;
 }
 
-.winTitle {
-  font-size: 0.6rem;
-  font-weight: 600;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.2rem;
-  margin-bottom: 0.2rem;
+.windowLeft {
+  top: 15%;
+  left: 8%;
+  transform: rotateY(12deg) rotateX(5deg);
+  z-index: 1;
 }
 
-.winRow {
-  height: 12px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 2px;
-  font-size: 0.5rem;
-  color: #888;
+.windowRight {
+  bottom: 15%;
+  right: 8%;
+  transform: rotateY(-12deg) rotateX(5deg);
+  z-index: 2;
+}
+
+.winHeader {
   display: flex;
   align-items: center;
-  padding-left: 0.2rem;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  background: rgba(128, 128, 128, 0.05);
+  border-radius: 10px 10px 0 0;
 }
 
-.winRowEmpty {
+.winDots {
+  display: flex;
+  gap: 3px;
+  margin-right: auto;
+}
+
+.winDots div {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.dotRed { background: #ff5f56; }
+.dotYellow { background: #ffbd2e; }
+.dotGreen { background: #27c93f; }
+
+.winTitle {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #888;
+  margin: 0 auto;
+  padding-right: 15px;
+}
+
+.winBody {
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.winSkeleton {
   height: 12px;
-  border: 1px dashed rgba(0, 0, 0, 0.15);
-  border-radius: 2px;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 4px;
+  width: 100%;
 }
 
-.cursorArrow {
+.winSkeletonHighlight {
+  animation: highlightRowA 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.winSkeletonPaste {
+  animation: pasteRowB 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cursorArrowSVG {
   position: absolute;
-  font-size: 1.2rem;
+  top: 50%;
+  left: 50%;
   z-index: 10;
-  animation: cursorMove 3s infinite;
+  width: 24px;
+  height: 24px;
+  animation: cursorDragDrop 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  transform-origin: 28% 18%; /* Click scales from the very tip of the cursor */
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
 }
 
-@keyframes cursorMove {
-  0% { transform: translate(10px, 30px); }
-  20% { transform: translate(10px, 30px) scale(0.9); }
-  50% { transform: translate(100px, 30px); }
-  70% { transform: translate(100px, 30px) scale(0.9); }
-  100% { transform: translate(10px, 30px); }
+.flyingData {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 12px;
+  background: var(--foreground);
+  border-radius: 4px;
+  z-index: 9;
+  opacity: 0;
+  animation: flyingDataAnim 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes cursorDragDrop {
+  0% { transform: translate(50px, 80px); }
+  15% { transform: translate(-90px, -50px); }
+  20% { transform: translate(-90px, -50px) scale(0.8); }
+  25% { transform: translate(-90px, -50px) scale(0.8); }
+  50% { transform: translate(70px, 30px) scale(0.8); }
+  55% { transform: translate(70px, 30px) scale(1); }
+  100% { transform: translate(50px, 80px); }
+}
+
+@keyframes highlightRowA {
+  0%, 15% { background: rgba(128, 128, 128, 0.1); }
+  20%, 50% { background: var(--foreground); }
+  55%, 100% { background: rgba(128, 128, 128, 0.1); }
+}
+
+@keyframes pasteRowB {
+  0%, 50% { background: rgba(128, 128, 128, 0.1); }
+  55%, 100% { background: var(--foreground); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+}
+
+@keyframes flyingDataAnim {
+  0%, 20% { opacity: 0; transform: translate(-90px, -50px) scale(0.9); }
+  25% { opacity: 0.8; transform: translate(-90px, -50px) scale(1); }
+  50% { opacity: 0.8; transform: translate(70px, 30px) scale(1); }
+  55%, 100% { opacity: 0; transform: translate(70px, 30px) scale(0.9); }
 }
 
 /* Card 3 Visuals - Data Errors */

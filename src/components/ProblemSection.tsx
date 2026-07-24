@@ -45,18 +45,48 @@ export default function ProblemSection() {
           {/* Card 2 */}
           <div className={styles.card}>
             <div className={`${styles.cardVisual} ${styles.cardVisualAdmin}`}>
-              <div className={styles.windowApp}>
-                <div className={styles.winTitle}>Data.csv</div>
-                <div className={styles.winRow}>John Doe</div>
-                <div className={styles.winRow}>Jane Smith</div>
-                <div className={styles.winRow}>Acme Corp</div>
+              {/* Flying Data Block */}
+              <div className={styles.flyingData}></div>
+              
+              {/* Cursor */}
+              <div className={styles.cursorArrowSVG}>
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.158 5.617C9.569 5.093 8.5 5.512 8.5 6.301V25.326C8.5 26.069 9.387 26.438 9.9 25.9L16.273 19.33H24.32C25.04 19.33 25.438 18.455 24.937 17.95L10.158 5.617Z" fill="var(--foreground)" stroke="var(--background)" strokeWidth="2" strokeLinejoin="round"/>
+                </svg>
               </div>
-              <div className={styles.cursorArrow}>↗</div>
-              <div className={styles.windowApp}>
-                <div className={styles.winTitle}>CRM</div>
-                <div className={styles.winRowEmpty}></div>
-                <div className={styles.winRowEmpty}></div>
-                <div className={styles.winRowEmpty}></div>
+
+              {/* Window A - Salesforce */}
+              <div className={`${styles.windowApp} ${styles.windowLeft}`}>
+                <div className={styles.winHeader}>
+                  <div className={styles.winDots}>
+                    <div className={styles.dotRed}></div>
+                    <div className={styles.dotYellow}></div>
+                    <div className={styles.dotGreen}></div>
+                  </div>
+                  <div className={styles.winTitle}>Salesforce</div>
+                </div>
+                <div className={styles.winBody}>
+                  <div className={`${styles.winSkeleton} ${styles.winSkeletonHighlight}`}></div>
+                  <div className={styles.winSkeleton}></div>
+                  <div className={styles.winSkeleton}></div>
+                </div>
+              </div>
+
+              {/* Window B - Zendesk */}
+              <div className={`${styles.windowApp} ${styles.windowRight}`}>
+                <div className={styles.winHeader}>
+                  <div className={styles.winDots}>
+                    <div className={styles.dotRed}></div>
+                    <div className={styles.dotYellow}></div>
+                    <div className={styles.dotGreen}></div>
+                  </div>
+                  <div className={styles.winTitle}>Zendesk</div>
+                </div>
+                <div className={styles.winBody}>
+                  <div className={styles.winSkeleton}></div>
+                  <div className={`${styles.winSkeleton} ${styles.winSkeletonPaste}`}></div>
+                  <div className={styles.winSkeleton}></div>
+                </div>
               </div>
             </div>
             <div className={styles.cardContent}>
