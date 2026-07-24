@@ -1,0 +1,166 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1.5rem 0;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  padding: 1rem 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.splashOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--background);
+  pointer-events: none;
+  animation: fadeOutOverlay 0.7s ease 1.4s forwards;
+}
+
+@keyframes fadeOutOverlay {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.splashOverlay.hiddenOverlay {
+  display: none;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.wordMask {
+  height: 2rem;
+  overflow: hidden;
+}
+
+.wordTrack {
+  display: flex;
+  flex-direction: column;
+  animation: slideTrack 1.8s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes slideTrack {
+  0%, 15% { transform: translateY(0); }
+  25%, 40% { transform: translateY(-2rem); }
+  50%, 65% { transform: translateY(-4rem); }
+  75%, 90% { transform: translateY(-6rem); }
+  100% { transform: translateY(-8rem); }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 2rem;
+  height: 2rem;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navLinks {
+  display: none;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 1.5s forwards;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+}
+
+.navLinks a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.65;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.navLinks a:hover {
+  opacity: 1;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 2rem;
+}
+
+.progressTrack {
+  width: 2px;
+  height: 2rem;
+  background-color: var(--border-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  animation: fadeOutOverlay 0.3s ease 1.8s forwards;
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--secondary);
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  animation: fillProgress 1.8s linear forwards;
+}
+
+@keyframes fillProgress {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.contactBtn {
+  background-color: var(--secondary);
+  color: #000000;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 1.5s forwards;
+}
+
+.contactBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(193, 255, 114, 0.4);
+  background-color: #a8e65e;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
