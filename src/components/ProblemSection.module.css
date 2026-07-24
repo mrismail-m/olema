@@ -1,0 +1,300 @@
+.problemSection {
+  padding: 120px 2rem;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 800px;
+  margin-bottom: 5rem;
+}
+
+.eyebrowBadge {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.65;
+  max-width: 650px;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardVisual {
+  height: 240px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.cardContent {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+
+.cardText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.6;
+  margin: 0;
+  color: var(--foreground);
+}
+
+/* Common Wireframe Styles */
+.nodeApp, .nodeAppSmall, .dbNode, .userNode {
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  position: relative;
+}
+
+/* Card 1 Visuals */
+.diagramLeads {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+}
+
+.nodeGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.connectionLines {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background-color: var(--border-color);
+  border: 1px dashed rgba(0,0,0,0.2);
+}
+
+.pulseDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--foreground);
+  border-radius: 50%;
+  animation: moveDot 2s infinite ease-in-out;
+}
+
+@keyframes moveDot {
+  0% { transform: translate(0, -3px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translate(40px, -3px); opacity: 0; }
+}
+
+/* Card 2 Visuals */
+.diagramTerminal {
+  width: 80%;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.terminalHeader {
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+}
+
+.terminalBody {
+  padding: 1rem;
+  font-family: monospace;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.termTime { color: #888; }
+.termCmd { color: var(--foreground); }
+.termDots { color: #aaa; }
+.termError { 
+  color: #ff4d4d; 
+  animation: blink 1.5s infinite;
+}
+
+.errorPopup {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  background: #fff0f0;
+  border: 1px solid #ffd6d6;
+  color: #ff4d4d;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.1);
+  animation: popUp 3s infinite;
+}
+
+@keyframes popUp {
+  0%, 80% { transform: scale(1); opacity: 1; }
+  90% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.5; }
+}
+
+/* Card 3 Visuals */
+.diagramNetwork {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hubContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hubNode {
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  font-size: 1.2rem;
+}
+
+.spokeLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 1px;
+  background-color: transparent;
+  border-top: 1px dashed rgba(0,0,0,0.2);
+  transform-origin: 0 0;
+  z-index: 0;
+}
+
+.spokeNode {
+  position: absolute;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  white-space: nowrap;
+}
