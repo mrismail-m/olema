@@ -99,18 +99,31 @@ export default function ProblemSection() {
 
           {/* Card 3 */}
           <div className={styles.card}>
-            <div className={`${styles.cardVisual} ${styles.cardVisualErrors}`}>
-              <div className={styles.dbBox}>
-                <div className={styles.dbTitle}>Stripe</div>
-                <div className={styles.dbData}>$1,500.00</div>
+            <div className={`${styles.cardVisual} ${styles.cardVisualSync}`}>
+              
+              {/* Stripe Box */}
+              <div className={styles.syncBoxLeft}>
+                <div className={styles.syncBoxHeader}>Stripe</div>
+                <div className={styles.syncBoxStatus}>Live</div>
               </div>
-              <div className={styles.errorArrow}>
-                <div className={styles.redX}>❌</div>
+
+              {/* Quickbooks Box */}
+              <div className={styles.syncBoxRight}>
+                <div className={styles.syncBoxHeader}>Quickbooks</div>
+                <div className={styles.syncBoxStatusContainer}>
+                  <span className={styles.statusSyncing}>Syncing</span>
+                  <span className={styles.statusFailed}>Failed</span>
+                </div>
               </div>
-              <div className={styles.dbBox}>
-                <div className={styles.dbTitle}>Quickbooks</div>
-                <div className={styles.dbDataErr}>$15.00</div>
+
+              {/* Sync Pipeline connecting them */}
+              <div className={styles.syncPipeline}>
+                <div className={styles.syncWire}></div>
+                <div className={styles.syncWireLeft}></div>
+                <div className={styles.syncWireRight}></div>
+                <div className={styles.syncSpark}></div>
               </div>
+
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>You could cut data errors by 99.2%</h3>

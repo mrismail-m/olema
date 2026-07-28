@@ -354,33 +354,30 @@
 /* Card 2 Visuals - Admin */
 
 .cardVisualAdmin {
-  perspective: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .windowApp {
   width: 130px;
-  background: rgba(128, 128, 128, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(128, 128, 128, 0.2);
-  border-radius: 10px;
+  background: var(--background);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: absolute;
 }
 
 .windowLeft {
   top: 15%;
-  left: 8%;
-  transform: rotateY(12deg) rotateX(5deg);
+  left: 10%;
   z-index: 1;
 }
 
 .windowRight {
   bottom: 15%;
-  right: 8%;
-  transform: rotateY(-12deg) rotateX(5deg);
+  right: 10%;
   z-index: 2;
 }
 
@@ -388,9 +385,9 @@
   display: flex;
   align-items: center;
   padding: 0.4rem 0.6rem;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
-  background: rgba(128, 128, 128, 0.05);
-  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(128, 128, 128, 0.02);
+  border-radius: 6px 6px 0 0;
 }
 
 .winDots {
@@ -447,8 +444,7 @@
   height: 24px;
   animation: cursorDragDrop 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
-  transform-origin: 28% 18%; /* Click scales from the very tip of the cursor */
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
+  transform-origin: 28% 18%;
 }
 
 .flyingData {
@@ -483,7 +479,7 @@
 
 @keyframes pasteRowB {
   0%, 50% { background: rgba(128, 128, 128, 0.1); }
-  55%, 100% { background: var(--foreground); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+  55%, 100% { background: var(--foreground); }
 }
 
 @keyframes flyingDataAnim {
@@ -493,58 +489,173 @@
   55%, 100% { opacity: 0; transform: translate(70px, 30px) scale(0.9); }
 }
 
-/* Card 3 Visuals - Data Errors */
+/* Card 3 Visuals - API Sync Error */
 
-.dbBox {
-  width: 90px;
+.cardVisualSync {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.syncBoxLeft, .syncBoxRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100px;
   background: var(--background);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  padding: 0.5rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
 }
 
-.dbTitle {
-  font-size: 0.65rem;
+.syncBoxLeft {
+  left: 10%;
+}
+
+.syncBoxRight {
+  right: 10%;
+}
+
+.syncBoxHeader {
+  font-size: 0.55rem;
   font-weight: 600;
-  color: #666;
-  margin-bottom: 0.5rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.dbData {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--foreground);
+.syncBoxStatus {
+  font-size: 0.55rem;
+  color: #27c93f;
+  background: rgba(39, 201, 63, 0.1);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
 }
 
-.dbDataErr {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #ff4d4d;
-  animation: shake 2s infinite;
-}
-
-.errorArrow {
-  width: 40px;
-  height: 2px;
-  background: #ff4d4d;
+.syncBoxStatusContainer {
   position: relative;
+  width: 55px;
+  height: 18px;
+}
+
+.statusSyncing, .statusFailed {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.55rem; font-weight: 600; border-radius: 4px;
+}
+
+.statusSyncing {
+  color: #27c93f; background: rgba(39, 201, 63, 0.1);
+  animation: syncFade 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statusFailed {
+  color: #ff5f56; background: rgba(255, 95, 86, 0.1);
+  animation: failFade 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.syncPipeline {
+  position: absolute;
+  top: 50%;
+  left: 32%;
+  right: 32%;
+  height: 2px;
+  z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  transform: translateY(-50%);
 }
 
-.redX {
-  background: var(--background);
+.syncWire {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  background: var(--foreground);
+  transform-origin: left;
+  animation: wireDraw 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.syncWireLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 2px;
+  background: #ff5f56;
+  transform-origin: left;
+  animation: wireSnapLeft 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.syncWireRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 2px;
+  background: #ff5f56;
+  transform-origin: right;
+  animation: wireSnapRight 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.syncSpark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: #ffbd2e;
   border-radius: 50%;
-  font-size: 0.8rem;
-  padding: 2px;
-  border: 1px solid #ff4d4d;
+  transform: translate(-50%, -50%) scale(0);
+  animation: sparkPop 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-  20%, 40%, 60%, 80% { transform: translateX(2px); }
+@keyframes syncFade {
+  0%, 10% { opacity: 0; }
+  15%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
+
+@keyframes failFade {
+  0%, 45% { opacity: 0; }
+  46%, 85% { opacity: 1; }
+  90%, 100% { opacity: 0; }
+}
+
+@keyframes wireDraw {
+  0%, 10% { width: 0%; opacity: 1; background: var(--foreground); }
+  25% { width: 100%; opacity: 1; background: var(--foreground); }
+  45% { width: 100%; opacity: 1; background: var(--foreground); }
+  46% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes wireSnapLeft {
+  0%, 45% { opacity: 0; transform: rotate(0deg) scaleX(1); }
+  46% { opacity: 1; transform: rotate(0deg) scaleX(1); }
+  50%, 85% { opacity: 1; transform: rotate(15deg) scaleX(0.85); }
+  90%, 100% { opacity: 0; }
+}
+
+@keyframes wireSnapRight {
+  0%, 45% { opacity: 0; transform: rotate(0deg) scaleX(1); }
+  46% { opacity: 1; transform: rotate(0deg) scaleX(1); }
+  50%, 85% { opacity: 1; transform: rotate(-15deg) scaleX(0.85); }
+  90%, 100% { opacity: 0; }
+}
+
+@keyframes sparkPop {
+  0%, 45% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  46% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+  100% { opacity: 0; }
 }
