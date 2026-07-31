@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <div className={`${styles.splashOverlay} ${splashFinished ? styles.hiddenOverlay : ""}`}></div>
-      <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
+      <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${isMobileMenuOpen ? styles.menuOpenNav : ""}`}>
         <div className={styles.container}>
           <div className={styles.logoContainer}>
             <div className={styles.wordMask}>
@@ -78,13 +78,26 @@ export default function Navbar() {
       </header>
       
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ""}`}>
-        <nav className={styles.mobileNavLinks}>
-          <Link href="#agents" onClick={() => setIsMobileMenuOpen(false)}>Agents</Link>
-          <Link href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>How It Works</Link>
-          <Link href="#security" onClick={() => setIsMobileMenuOpen(false)}>Security</Link>
-          <Link href="#faqs" onClick={() => setIsMobileMenuOpen(false)}>FAQs</Link>
-          <Link href="#contact" className={styles.mobileContactBtn} onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-        </nav>
+        <div className={styles.mobileMenuContent}>
+          <nav className={styles.mobileNavLinks}>
+            <Link href="/" className={styles.mobileNavLinkGray} onClick={() => setIsMobileMenuOpen(false)}>HOME</Link>
+            <Link href="#agents" onClick={() => setIsMobileMenuOpen(false)}>AGENTS</Link>
+            <Link href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)}>HOW IT WORKS</Link>
+            <Link href="#security" onClick={() => setIsMobileMenuOpen(false)}>SECURITY</Link>
+            <Link href="#faqs" onClick={() => setIsMobileMenuOpen(false)}>FAQS</Link>
+            <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>CONTACT</Link>
+          </nav>
+          
+          <div className={styles.mobileSocials}>
+            <div className={styles.socialsLabel}>FOLLOW US</div>
+            <div className={styles.socialsList}>
+              <a href="#">INSTAGRAM</a>
+              <a href="#">LINKEDIN</a>
+              <a href="#">TWITTER</a>
+              <a href="#">YOUTUBE</a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
