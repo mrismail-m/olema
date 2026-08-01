@@ -1,0 +1,229 @@
+.comparisonSection {
+  padding: 80px 1rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .comparisonSection {
+    padding: 120px 2rem;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: max-content;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .titleContainer {
+    margin: 0 auto 4rem auto;
+  }
+}
+
+.titleRow {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.vsBadge {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 400;
+  color: var(--secondary);
+  position: absolute;
+  top: 50%;
+  right: -5%; /* Brings it closer to the text */
+  transform: translate(0, -50%) rotate(-10deg);
+  pointer-events: none;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.cardLight {
+  position: relative;
+  background: #f4f4f5;
+  border: 6px solid white;
+  border-radius: 20px;
+  padding: 0.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDark {
+  position: relative;
+  background: var(--primary);
+  border: 6px solid var(--primary);
+  border-radius: 20px;
+  padding: 0.5rem;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeaderArea {
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardTitleLight {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.cardSubtitleLight {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.dividerLight {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.cardTitleDark {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-foreground);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.cardSubtitleDark {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.dividerDark {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+}
+
+.tagContainer {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem 0.4rem 0.4rem;
+  background: white;
+  border-radius: 8px 8px 0 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05); /* Adjusted shadow to focus on top */
+  white-space: nowrap;
+}
+
+.tagIconLight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6a2e35; /* dark reddish brown from image */
+  color: white;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+.tagIconDark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary); /* secondary color for the icon box */
+  color: var(--secondary-foreground);
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+}
+
+.innerBox {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.listIcon {
+  color: #888;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  width: 14px;
+  height: 14px;
+}
+
+.itemText {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 400;
+}
