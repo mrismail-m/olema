@@ -105,9 +105,6 @@ export default function ArsenalSection() {
           <h2 className={styles.title}>
             Pick Your Biggest Headache.<br />We'll Solve It First.
           </h2>
-          <p className={styles.description}>
-            Eight agents, each built to fix one specific thing that's costing you time, money, or sleep. Start with the one that hurts most — or hand us the whole mess.
-          </p>
         </div>
 
         <div className={styles.contentLayout}>
@@ -131,6 +128,9 @@ export default function ArsenalSection() {
 
           {/* Cards/Content - Right side */}
           <div className={styles.contentCol}>
+            <p className={styles.cardsDescription}>
+              Eight agents, each built to fix one specific thing that's costing you time, money, or sleep. Start with the one that hurts most — or hand us the whole mess.
+            </p>
             {activeGroup?.showcases.map((content) => (
               <div className={styles.showcaseCard} key={content.id}>
                 <h3 className={styles.cardTitle}>{content.title}</h3>

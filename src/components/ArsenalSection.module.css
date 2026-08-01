@@ -68,13 +68,14 @@
   margin: 0;
 }
 
-.description {
+.cardsDescription {
+  grid-column: 1 / -1;
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--foreground);
   opacity: 0.7;
   max-width: 650px;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
 }
 
 /* Layout for Tabs + Content */
@@ -121,7 +122,7 @@
   text-align: left;
   padding: 1.25rem 1.5rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid transparent;
   background: var(--glass-bg);
   color: var(--foreground);
   font-size: 1rem;
@@ -130,15 +131,55 @@
   transition: all 0.2s ease;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.tabBtn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  border: 2px solid var(--border-color);
+  filter: blur(1px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.tabBtn::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: all 0.2s ease;
+  transform: scale(0.5);
 }
 
 .tabBtn:hover {
   background: rgba(0,0,0,0.03);
 }
+.tabBtn:hover::before {
+  border-color: rgba(0,0,0,0.15);
+}
+
+.tabBtn:hover::after,
+.activeTab::after {
+  opacity: 1;
+  transform: scale(1);
+}
 
 .activeTab {
   background: var(--foreground);
   color: var(--background);
+  border-color: transparent;
+}
+
+.activeTab::before {
   border-color: var(--foreground);
 }
 
