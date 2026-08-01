@@ -203,8 +203,9 @@ export default function ArsenalSection() {
                   ) : content.id === "alerts" ? (
                     <div className={styles.alertsAnimContainer}>
                       <div className={styles.alertsRadar}>
-                        <div className={styles.alertsRadarCircle}></div>
-                        <div className={styles.alertsRadarCircle}></div>
+                        <div className={styles.alertsRadarCircle} style={{animationDelay: '0s'}}></div>
+                        <div className={styles.alertsRadarCircle} style={{animationDelay: '1s'}}></div>
+                        <div className={styles.alertsRadarCircle} style={{animationDelay: '2s'}}></div>
                       </div>
                       <div className={styles.alertToast}>
                         <div className={styles.alertToastHeader}>
@@ -249,10 +250,19 @@ export default function ArsenalSection() {
                       <div className={styles.orderChat}>
                         <div className={styles.orderBubble}>Need 50 boxes of XYZ</div>
                       </div>
-                      <div className={styles.orderSystem}>
-                        <div className={styles.orderEntry}>
-                          <div className={styles.orderEntryIcon}>✓</div>
-                          <div className={styles.orderEntryText}>ERP Logged: 50x XYZ</div>
+                      
+                      <div className={styles.orderSteps}>
+                        <div className={`${styles.orderStep} ${styles.orderStep1}`}>
+                          <div className={styles.orderStepIcon}>✓</div>
+                          <div className={styles.orderStepText}>Stock Verified</div>
+                        </div>
+                        <div className={`${styles.orderStep} ${styles.orderStep2}`}>
+                          <div className={styles.orderStepIcon}>✓</div>
+                          <div className={styles.orderStepText}>ERP Updated</div>
+                        </div>
+                        <div className={`${styles.orderStep} ${styles.orderStep3}`}>
+                          <div className={styles.orderStepIcon}>✓</div>
+                          <div className={styles.orderStepText}>Invoice Sent</div>
                         </div>
                       </div>
                     </div>
