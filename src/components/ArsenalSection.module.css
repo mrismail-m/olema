@@ -402,27 +402,216 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 /* 3. Appointment */
-.cardIllustration[data-type="appointment"] .cssShapeMain {
-  width: 70px; height: 70px; border-radius: 16px; background: var(--glass-bg); border: 2px solid rgba(193, 255, 114, 0.3); top: 50%; left: 50%;
-}
-.cardIllustration[data-type="appointment"] .cssShapeSecondary {
-  width: 70px; height: 20px; background: rgba(193, 255, 114, 0.2); border-radius: 14px 14px 0 0; top: 35%; left: 50%;
-}
-.cardIllustration[data-type="appointment"] .cssShapeTertiary {
-  width: 12px; height: 12px; background: #c1ff72; border-radius: 50%; top: 55%; left: 45%; box-shadow: 20px 0 0 rgba(255,255,255,0.4), 0 20px 0 rgba(255,255,255,0.4), 20px 20px 0 #c1ff72;
+.apptTimelineContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-top: -1rem;
 }
 
-/* 4. Alerts */
-.cardIllustration[data-type="alerts"] .cssShapeMain {
-  width: 60px; height: 60px; border-radius: 50%; background: rgba(193, 255, 114, 0.1); border: 1px solid #c1ff72; top: 50%; left: 50%; box-shadow: 0 0 30px rgba(193, 255, 114, 0.2);
+.apptTimeline {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  position: relative;
 }
-.cardIllustration[data-type="alerts"] .cssShapeSecondary {
-  width: 90px; height: 90px; border-radius: 50%; border: 1px dashed rgba(255, 255, 255, 0.2); top: 50%; left: 50%; animation: spin 10s linear infinite;
+
+.apptTimeCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  color: #888;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: right;
+  padding-top: 5px;
 }
-.cardIllustration[data-type="alerts"] .cssShapeTertiary {
-  width: 20px; height: 20px; background: #c1ff72; border-radius: 50%; top: 50%; left: 50%; box-shadow: 0 0 20px #c1ff72;
+
+.apptScheduleCol {
+  flex: 1;
+  position: relative;
+  height: 120px;
+  border-left: 1px solid rgba(0,0,0,0.06);
 }
-@keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.apptLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.04);
+}
+
+.apptExistingBlock {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  right: 10px;
+  height: 40px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.7rem;
+  color: #666;
+  font-weight: 500;
+  border-left: 3px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+}
+
+.apptNewBlock {
+  position: absolute;
+  top: 65px;
+  left: 10px;
+  right: 10px;
+  height: 40px;
+  background: #c1ff72;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.7rem;
+  color: #181818;
+  font-weight: 600;
+  border-left: 3px solid #8cc540;
+  box-shadow: 0 4px 12px rgba(193, 255, 114, 0.4);
+  
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  animation: bookMeeting 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.apptBlockInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.apptBlockBadge {
+  background: rgba(0,0,0,0.1);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+}
+
+@keyframes bookMeeting {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 4. Alerts Animation */
+.alertsAnimContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: -1rem;
+}
+
+.alertsRadar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+.alertsRadarCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 1.5px solid #c1ff72;
+  opacity: 0;
+  animation: radarPulse 3s linear infinite;
+}
+
+.alertsRadarCircle:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.2); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.alertToast {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  width: 85%;
+  max-width: 240px;
+  z-index: 2;
+  
+  opacity: 0;
+  transform: translateY(15px);
+  animation: alertToastPop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+.alertToastHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.alertToastDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffb347;
+  box-shadow: 0 0 0 0 rgba(255, 179, 71, 0.4);
+  animation: pulseWarning 1.5s infinite;
+}
+
+.alertToastText {
+  color: #181818;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@keyframes pulseWarning {
+  0% { box-shadow: 0 0 0 0 rgba(255, 179, 71, 0.5); }
+  70% { box-shadow: 0 0 0 5px rgba(255, 179, 71, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 179, 71, 0); }
+}
+
+@keyframes alertToastPop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* 5. Order */
 .cardIllustration[data-type="order"] { --t-base: translate(-50%, -50%) rotate(45deg); }
@@ -458,15 +647,168 @@
   width: 60px; height: 2px; background: linear-gradient(90deg, #c1ff72, transparent); top: 50%; left: 50%; --t-ter: translate(-50%, -50%) rotate(45deg);
 }
 
-/* 8. Ticket */
-.cardIllustration[data-type="ticket"] .cssShapeMain {
-  width: 70px; height: 40px; background: rgba(193, 255, 114, 0.2); border: 1px solid #c1ff72; border-radius: 8px; top: 40%; left: 50%; backdrop-filter: blur(4px); z-index: 3;
+/* 8. Ticket Auto-Triage Animation */
+.premiumTriageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
 }
-.cardIllustration[data-type="ticket"] .cssShapeSecondary {
-  width: 65px; height: 40px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; top: 50%; left: 50%; z-index: 2;
+
+.triageQueue {
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+  height: 110px;
 }
-.cardIllustration[data-type="ticket"] .cssShapeTertiary {
-  width: 60px; height: 40px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; top: 60%; left: 50%; z-index: 1;
+
+.triageScanner {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(193, 255, 114, 0.4) 95%, #c1ff72 100%);
+  z-index: 10;
+  opacity: 0;
+  animation: triageScanQueue 4s infinite;
+  pointer-events: none;
+}
+
+.triageItemWrapNormal1, .triageItemWrapNormal2, .triageItemWrapEscalating {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.triageItemWrapNormal1 {
+  top: 0;
+  animation: moveDownQueue 4s infinite;
+}
+.triageItemWrapNormal2 {
+  top: 40px;
+  animation: moveDownQueue 4s infinite;
+}
+.triageItemWrapEscalating {
+  top: 80px;
+  animation: jumpQueue 4s infinite;
+  z-index: 5;
+}
+
+.triageItem {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.triageItemTitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.triageItemBadge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.05);
+  color: #888;
+}
+
+.triageItemEscalating {
+  animation: triageCardElevate 4s infinite;
+}
+
+.triageItemBadgeAnim {
+  position: relative;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 55px;
+  animation: triageBadgeBg 4s infinite;
+}
+
+.badgeTextPending, .badgeTextUrgent {
+  position: absolute;
+  transition: opacity 0.3s;
+}
+
+.badgeTextPending {
+  animation: hidePending 4s infinite;
+}
+
+.badgeTextUrgent {
+  opacity: 0;
+  animation: showUrgent 4s infinite;
+}
+
+@keyframes triageScanQueue {
+  0% { top: -20px; opacity: 0; }
+  10% { opacity: 1; }
+  35% { top: 120px; opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes moveDownQueue {
+  0%, 40% { transform: translateY(0); }
+  45%, 90% { transform: translateY(40px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes jumpQueue {
+  0%, 40% { transform: translateY(0); }
+  45%, 90% { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes triageCardElevate {
+  0%, 40% {
+    border-color: rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.3);
+  }
+  45%, 90% {
+    border-color: rgba(255, 77, 77, 0.3);
+    background: rgba(255, 77, 77, 0.05);
+  }
+  100% {
+    border-color: rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes triageBadgeBg {
+  0%, 40% { background: rgba(0,0,0,0.05); }
+  45%, 90% { background: #ff4d4d; }
+  100% { background: rgba(0,0,0,0.05); }
+}
+
+@keyframes hidePending {
+  0%, 40% { opacity: 1; color: #666; }
+  45%, 90% { opacity: 0; color: #666; }
+  100% { opacity: 1; color: #666; }
+}
+
+@keyframes showUrgent {
+  0%, 40% { opacity: 0; color: white; }
+  45%, 90% { opacity: 1; color: white; }
+  100% { opacity: 0; color: white; }
 }
 
 .cardFooter {

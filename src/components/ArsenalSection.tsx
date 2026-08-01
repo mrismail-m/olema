@@ -174,6 +174,76 @@ export default function ArsenalSection() {
                         </div>
                       </div>
                     </div>
+                  ) : content.id === "appointment" ? (
+                    <div className={styles.apptTimelineContainer}>
+                      <div className={styles.apptTimeline}>
+                        <div className={styles.apptTimeCol}>
+                          <span>9 AM</span>
+                          <span>10 AM</span>
+                          <span>11 AM</span>
+                        </div>
+                        <div className={styles.apptScheduleCol}>
+                          <div className={styles.apptLine} style={{ top: '10px' }}></div>
+                          <div className={styles.apptLine} style={{ top: '60px' }}></div>
+                          <div className={styles.apptLine} style={{ top: '110px' }}></div>
+                          
+                          <div className={styles.apptExistingBlock}>
+                            <div className={styles.apptBlockTitle}>Team Standup</div>
+                          </div>
+                          
+                          <div className={styles.apptNewBlock}>
+                            <div className={styles.apptBlockInner}>
+                              <span className={styles.apptBlockTitle}>Discovery Call</span>
+                              <span className={styles.apptBlockBadge}>Auto-booked</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : content.id === "alerts" ? (
+                    <div className={styles.alertsAnimContainer}>
+                      <div className={styles.alertsRadar}>
+                        <div className={styles.alertsRadarCircle}></div>
+                        <div className={styles.alertsRadarCircle}></div>
+                      </div>
+                      <div className={styles.alertToast}>
+                        <div className={styles.alertToastHeader}>
+                          <div className={styles.alertToastDot}></div>
+                          <span>Early Warning</span>
+                        </div>
+                        <div className={styles.alertToastText}>Supply Route A showing 15m delay. Resolving before impact.</div>
+                      </div>
+                    </div>
+                  ) : content.id === "ticket" ? (
+                    <div className={styles.premiumTriageContainer}>
+                      <div className={styles.triageQueue}>
+                        <div className={styles.triageScanner}></div>
+                        
+                        <div className={styles.triageItemWrapNormal1}>
+                          <div className={styles.triageItem}>
+                            <div className={styles.triageItemTitle}>Billing update</div>
+                            <div className={styles.triageItemBadge}>Low</div>
+                          </div>
+                        </div>
+                        
+                        <div className={styles.triageItemWrapNormal2}>
+                          <div className={styles.triageItem}>
+                            <div className={styles.triageItemTitle}>Login issue</div>
+                            <div className={styles.triageItemBadge}>Low</div>
+                          </div>
+                        </div>
+                        
+                        <div className={styles.triageItemWrapEscalating}>
+                          <div className={`${styles.triageItem} ${styles.triageItemEscalating}`}>
+                            <div className={styles.triageItemTitle}>Gateway Down</div>
+                            <div className={styles.triageItemBadgeAnim}>
+                              <span className={styles.badgeTextPending}>Review</span>
+                              <span className={styles.badgeTextUrgent}>Urgent</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ) : (
                     <>
                       <div className={styles.cssShapeMain}></div>
