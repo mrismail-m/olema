@@ -573,20 +573,17 @@
   align-items: center;
   gap: 0.4rem;
   margin-bottom: 0.4rem;
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #888;
-  letter-spacing: 0.5px;
 }
 
 .alertToastDot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #ffb347;
-  box-shadow: 0 0 0 0 rgba(255, 179, 71, 0.4);
-  animation: pulseWarning 1.5s infinite;
+  background: #c1ff72;
+  margin-top: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(193, 255, 114, 0.4);
+  animation: pulseWarning 2s infinite;
 }
 
 .alertToastText {
@@ -597,9 +594,9 @@
 }
 
 @keyframes pulseWarning {
-  0% { box-shadow: 0 0 0 0 rgba(255, 179, 71, 0.5); }
-  70% { box-shadow: 0 0 0 5px rgba(255, 179, 71, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 179, 71, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(193, 255, 114, 0.5); }
+  70% { box-shadow: 0 0 0 5px rgba(193, 255, 114, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(193, 255, 114, 0); }
 }
 
 @keyframes alertToastPop {
@@ -700,7 +697,8 @@
 
 .triageItem {
   background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
   display: flex;
@@ -780,35 +778,227 @@
 
 @keyframes triageCardElevate {
   0%, 40% {
-    border-color: rgba(0,0,0,0.05);
+    border-color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.3);
   }
   45%, 90% {
-    border-color: rgba(255, 77, 77, 0.3);
-    background: rgba(255, 77, 77, 0.05);
+    border-color: #c1ff72;
+    background: rgba(193, 255, 114, 0.15);
   }
   100% {
-    border-color: rgba(0,0,0,0.05);
+    border-color: rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.3);
   }
 }
 
 @keyframes triageBadgeBg {
-  0%, 40% { background: rgba(0,0,0,0.05); }
-  45%, 90% { background: #ff4d4d; }
-  100% { background: rgba(0,0,0,0.05); }
+  0%, 40% { background: rgba(0,0,0,0.05); color: #888; }
+  45%, 90% { background: #c1ff72; color: #181818; }
+  100% { background: rgba(0,0,0,0.05); color: #888; }
 }
 
 @keyframes hidePending {
-  0%, 40% { opacity: 1; color: #666; }
-  45%, 90% { opacity: 0; color: #666; }
-  100% { opacity: 1; color: #666; }
+  0%, 40% { opacity: 1; color: #888; }
+  45%, 90% { opacity: 0; color: #888; }
+  100% { opacity: 1; color: #888; }
 }
 
 @keyframes showUrgent {
-  0%, 40% { opacity: 0; color: white; }
-  45%, 90% { opacity: 1; color: white; }
-  100% { opacity: 0; color: white; }
+  0%, 40% { opacity: 0; color: #181818; }
+  45%, 90% { opacity: 1; color: #181818; }
+  100% { opacity: 0; color: #181818; }
+}
+
+/* 9. Order, Healthcare, Custom Animations */
+.orderAnimContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.orderChat {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.orderBubble {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px 12px 12px 2px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.65rem;
+  color: var(--foreground);
+  animation: fadeUp 4s infinite;
+  backdrop-filter: blur(4px);
+}
+.orderSystem {
+  background: rgba(193, 255, 114, 0.15);
+  border: 1px solid #c1ff72;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  backdrop-filter: blur(8px);
+  animation: fadeUpDelay 4s infinite;
+  opacity: 0;
+}
+.orderEntry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.orderEntryIcon {
+  width: 16px;
+  height: 16px;
+  background: #c1ff72;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: bold;
+  color: #181818;
+}
+.orderEntryText {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.healthAnimContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.healthCard {
+  width: 100%;
+  max-width: 180px;
+  background: rgba(193, 255, 114, 0.1);
+  border: 1px solid rgba(193, 255, 114, 0.4);
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+  animation: pulseGlass 4s infinite;
+}
+.healthHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.healthAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+}
+.healthLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.healthLine {
+  height: 4px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+}
+.healthLineShort {
+  height: 4px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 2px;
+  width: 60%;
+}
+.healthStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background: rgba(255,255,255,0.4);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+.healthStatusDot {
+  width: 6px;
+  height: 6px;
+  background: #c1ff72;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #c1ff72;
+  animation: blink 2s infinite;
+}
+
+.customAnimContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.customOrb {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.customOrbCore {
+  width: 30px;
+  height: 30px;
+  background: #c1ff72;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(193, 255, 114, 0.6);
+  animation: orbPulse 3s infinite;
+}
+.customOrbRing1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #c1ff72;
+  border-radius: 50%;
+  animation: spinSlow 8s linear infinite;
+}
+.customOrbRing2 {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border: 1px solid rgba(193, 255, 114, 0.3);
+  border-radius: 50%;
+  animation: spinSlowReverse 12s linear infinite;
+}
+
+@keyframes fadeUp {
+  0%, 10% { opacity: 0; transform: translateY(10px); }
+  20%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes fadeUpDelay {
+  0%, 40% { opacity: 0; transform: translateY(10px); }
+  50%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes pulseGlass {
+  0%, 100% { border-color: rgba(193, 255, 114, 0.3); background: rgba(193, 255, 114, 0.05); }
+  50% { border-color: #c1ff72; background: rgba(193, 255, 114, 0.2); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(193, 255, 114, 0.4); }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(193, 255, 114, 0.8); }
+}
+@keyframes spinSlow {
+  100% { transform: rotate(360deg); }
+}
+@keyframes spinSlowReverse {
+  100% { transform: rotate(-360deg); }
 }
 
 .cardFooter {

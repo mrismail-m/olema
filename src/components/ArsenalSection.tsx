@@ -244,13 +244,43 @@ export default function ArsenalSection() {
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <>
-                      <div className={styles.cssShapeMain}></div>
-                      <div className={styles.cssShapeSecondary}></div>
-                      <div className={styles.cssShapeTertiary}></div>
-                    </>
-                  )}
+                  ) : content.id === "order" ? (
+                    <div className={styles.orderAnimContainer}>
+                      <div className={styles.orderChat}>
+                        <div className={styles.orderBubble}>Need 50 boxes of XYZ</div>
+                      </div>
+                      <div className={styles.orderSystem}>
+                        <div className={styles.orderEntry}>
+                          <div className={styles.orderEntryIcon}>✓</div>
+                          <div className={styles.orderEntryText}>ERP Logged: 50x XYZ</div>
+                        </div>
+                      </div>
+                    </div>
+                  ) : content.id === "healthcare" ? (
+                    <div className={styles.healthAnimContainer}>
+                      <div className={styles.healthCard}>
+                        <div className={styles.healthHeader}>
+                          <div className={styles.healthAvatar}></div>
+                          <div className={styles.healthLines}>
+                            <div className={styles.healthLine}></div>
+                            <div className={styles.healthLineShort}></div>
+                          </div>
+                        </div>
+                        <div className={styles.healthStatus}>
+                          <div className={styles.healthStatusDot}></div>
+                          <span>Intake Synced</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : content.id === "custom" ? (
+                    <div className={styles.customAnimContainer}>
+                      <div className={styles.customOrb}>
+                        <div className={styles.customOrbCore}></div>
+                        <div className={styles.customOrbRing1}></div>
+                        <div className={styles.customOrbRing2}></div>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
                 
                 <div className={styles.cardFooter}>
