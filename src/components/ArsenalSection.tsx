@@ -269,6 +269,7 @@ export default function ArsenalSection() {
                   ) : content.id === "healthcare" ? (
                     <div className={styles.healthAnimContainer}>
                       <div className={styles.healthCard}>
+                        <div className={styles.healthScanner}></div>
                         <div className={styles.healthHeader}>
                           <div className={styles.healthAvatar}></div>
                           <div className={styles.healthLines}>
@@ -276,18 +277,36 @@ export default function ArsenalSection() {
                             <div className={styles.healthLineShort}></div>
                           </div>
                         </div>
-                        <div className={styles.healthStatus}>
-                          <div className={styles.healthStatusDot}></div>
-                          <span>Intake Synced</span>
+                        <div className={styles.healthForms}>
+                           <div className={styles.healthFormLine}></div>
+                           <div className={styles.healthFormLine}></div>
+                           <div className={styles.healthFormLine}></div>
+                        </div>
+                        <div className={styles.healthStatusWrapper}>
+                          <div className={styles.healthStatusPending}>
+                            <div className={styles.healthStatusDotGray}></div>
+                            <span>Pending</span>
+                          </div>
+                          <div className={styles.healthStatusSynced}>
+                            <div className={styles.healthStatusDotGreen}></div>
+                            <span>Synced & Booked</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   ) : content.id === "custom" ? (
                     <div className={styles.customAnimContainer}>
-                      <div className={styles.customOrb}>
-                        <div className={styles.customOrbCore}></div>
-                        <div className={styles.customOrbRing1}></div>
-                        <div className={styles.customOrbRing2}></div>
+                      <div className={styles.customPipeline}>
+                        <div className={styles.customBox}>Legacy</div>
+                        <div className={styles.customLine}></div>
+                        <div className={styles.customOrbMini}>
+                          <div className={styles.customOrbCoreMini}></div>
+                          <div className={styles.customOrbRing1Mini}></div>
+                        </div>
+                        <div className={styles.customLineAnim}>
+                          <div className={styles.customLineGlow}></div>
+                        </div>
+                        <div className={styles.customBoxGreen}>Automated</div>
                       </div>
                     </div>
                   ) : null}

@@ -913,18 +913,20 @@
 .healthCard {
   width: 100%;
   max-width: 180px;
-  background: rgba(193, 255, 114, 0.1);
-  border: 1px solid rgba(193, 255, 114, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   padding: 1rem;
   backdrop-filter: blur(8px);
-  animation: pulseGlass 4s infinite;
+  position: relative;
+  overflow: hidden;
+  animation: healthCardGlow 5s infinite;
 }
 .healthHeader {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 .healthAvatar {
   width: 24px;
@@ -949,24 +951,86 @@
   border-radius: 2px;
   width: 60%;
 }
-.healthStatus {
+.healthForms {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+.healthFormLine {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  width: 100%;
+}
+.healthFormLine:nth-child(2) { width: 80%; }
+.healthFormLine:nth-child(3) { width: 40%; }
+
+.healthStatusWrapper {
+  position: relative;
+  height: 24px;
+  width: 100%;
+}
+.healthStatusPending, .healthStatusSynced {
+  position: absolute;
+  top: 0; left: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.65rem;
   font-weight: 600;
-  color: var(--foreground);
-  background: rgba(255,255,255,0.4);
-  padding: 0.4rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 6px;
+  width: fit-content;
 }
-.healthStatusDot {
-  width: 6px;
-  height: 6px;
-  background: #c1ff72;
-  border-radius: 50%;
+.healthStatusPending {
+  background: rgba(0,0,0,0.05);
+  color: #888;
+  animation: hidePendingHealth 5s infinite;
+}
+.healthStatusDotGray {
+  width: 6px; height: 6px; border-radius: 50%; background: #aaa;
+}
+.healthStatusSynced {
+  background: rgba(193, 255, 114, 0.15);
+  color: var(--foreground);
+  border: 1px solid #c1ff72;
+  animation: showSyncedHealth 5s infinite;
+  opacity: 0;
+}
+.healthStatusDotGreen {
+  width: 6px; height: 6px; border-radius: 50%; background: #c1ff72;
   box-shadow: 0 0 6px #c1ff72;
-  animation: blink 2s infinite;
+}
+.healthScanner {
+  position: absolute;
+  top: -20px; left: 0; width: 100%; height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(193,255,114,0.4));
+  animation: healthScan 5s infinite;
+  opacity: 0;
+  z-index: 5;
+}
+
+@keyframes hidePendingHealth {
+  0%, 40% { opacity: 1; }
+  45%, 90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes showSyncedHealth {
+  0%, 40% { opacity: 0; }
+  45%, 90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes healthScan {
+  0% { top: -20px; opacity: 0; }
+  10% { opacity: 1; }
+  35% { top: 120%; opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+@keyframes healthCardGlow {
+  0%, 40% { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.2); }
+  45%, 90% { border-color: rgba(193, 255, 114, 0.4); background: rgba(193, 255, 114, 0.05); }
+  100% { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.2); }
 }
 
 .customAnimContainer {
@@ -976,66 +1040,99 @@
   align-items: center;
   justify-content: center;
 }
-.customOrb {
+.customPipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.customBox {
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(4px);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #888;
+}
+.customBoxGreen {
+  background: rgba(193, 255, 114, 0.15);
+  border: 1px solid #c1ff72;
+  backdrop-filter: blur(4px);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--foreground);
+  box-shadow: 0 0 10px rgba(193, 255, 114, 0.2);
+  opacity: 0;
+  animation: showCustomResult 5s infinite;
+}
+.customLine {
+  width: 15px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
+}
+.customLineAnim {
+  width: 15px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
   position: relative;
-  width: 60px;
-  height: 60px;
+  overflow: hidden;
+}
+.customLineGlow {
+  position: absolute;
+  top: 0; left: 0; height: 100%; width: 10px;
+  background: #c1ff72;
+  box-shadow: 0 0 5px #c1ff72;
+  animation: lineShoot 5s infinite;
+  opacity: 0;
+}
+.customOrbMini {
+  position: relative;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.customOrbCore {
-  width: 30px;
-  height: 30px;
+.customOrbCoreMini {
+  width: 16px;
+  height: 16px;
   background: #c1ff72;
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(193, 255, 114, 0.6);
-  animation: orbPulse 3s infinite;
+  box-shadow: 0 0 10px rgba(193, 255, 114, 0.6);
+  animation: orbPulseMini 5s infinite;
 }
-.customOrbRing1 {
+.customOrbRing1Mini {
   position: absolute;
   width: 100%;
   height: 100%;
   border: 1px dashed #c1ff72;
   border-radius: 50%;
-  animation: spinSlow 8s linear infinite;
-}
-.customOrbRing2 {
-  position: absolute;
-  width: 140%;
-  height: 140%;
-  border: 1px solid rgba(193, 255, 114, 0.3);
-  border-radius: 50%;
-  animation: spinSlowReverse 12s linear infinite;
+  animation: spinSlow 4s linear infinite;
 }
 
-@keyframes fadeUp {
-  0%, 10% { opacity: 0; transform: translateY(10px); }
-  20%, 90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
+@keyframes showCustomResult {
+  0%, 40% { opacity: 0; transform: translateX(-10px); }
+  45%, 90% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(-10px); }
 }
-@keyframes fadeUpDelay {
-  0%, 40% { opacity: 0; transform: translateY(10px); }
-  50%, 90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
+@keyframes lineShoot {
+  0%, 35% { left: -10px; opacity: 0; }
+  36% { left: -10px; opacity: 1; }
+  45% { left: 100%; opacity: 1; }
+  46%, 100% { left: 100%; opacity: 0; }
 }
-@keyframes pulseGlass {
-  0%, 100% { border-color: rgba(193, 255, 114, 0.3); background: rgba(193, 255, 114, 0.05); }
-  50% { border-color: #c1ff72; background: rgba(193, 255, 114, 0.2); }
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-@keyframes orbPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(193, 255, 114, 0.4); }
-  50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(193, 255, 114, 0.8); }
+@keyframes orbPulseMini {
+  0%, 25% { transform: scale(1); box-shadow: 0 0 10px rgba(193, 255, 114, 0.4); }
+  35% { transform: scale(1.3); box-shadow: 0 0 20px rgba(193, 255, 114, 0.8); }
+  50%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(193, 255, 114, 0.4); }
 }
 @keyframes spinSlow {
   100% { transform: rotate(360deg); }
-}
-@keyframes spinSlowReverse {
-  100% { transform: rotate(-360deg); }
 }
 
 .cardFooter {
