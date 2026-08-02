@@ -3,6 +3,7 @@ import ProblemSection from "@/components/ProblemSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import ArsenalSection from "@/components/ArsenalSection";
 import StorySection from "@/components/StorySection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <ProblemSection />
       <ArsenalSection />
       <ComparisonSection />
+      <HowItWorksSection />
     </main>
   );
 }
