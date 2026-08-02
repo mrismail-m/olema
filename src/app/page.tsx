@@ -4,6 +4,7 @@ import ComparisonSection from "@/components/ComparisonSection";
 import ArsenalSection from "@/components/ArsenalSection";
 import StorySection from "@/components/StorySection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import FAQSection from "@/components/FAQSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <ArsenalSection />
       <ComparisonSection />
       <HowItWorksSection />
+      <FAQSection />
     </main>
   );
 }
