@@ -16,7 +16,7 @@ const steps = [
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
     ),
-    image: null,
+    gradientColors: ["#C1FF72", "#FFFFFF", "#C1FF72", "#FFFFFF"],
   },
   {
     id: "step-2",
@@ -28,7 +28,7 @@ const steps = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
       </svg>
     ),
-    image: "url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80')",
+    gradientColors: ["#72C1FF", "#FFFFFF", "#72C1FF", "#FFFFFF"],
   },
   {
     id: "step-3",
@@ -41,7 +41,7 @@ const steps = [
         <line x1="12" y1="3" x2="12" y2="21" />
       </svg>
     ),
-    image: "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80')",
+    gradientColors: ["#B472FF", "#FFFFFF", "#B472FF", "#FFFFFF"],
   },
   {
     id: "step-4",
@@ -53,7 +53,7 @@ const steps = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    image: "url('https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80')",
+    gradientColors: ["#FF72B4", "#FFFFFF", "#FF72B4", "#FFFFFF"],
   },
 ];
 
@@ -80,9 +80,8 @@ export default function HowItWorksSection() {
                   <>
                     <div 
                       className={styles.cardImage} 
-                      style={step.image ? { background: step.image } : {}}
                     >
-                      {step.id === 'step-1' && <GradientWave colors={["#C1FF72", "#FFFFFF", "#C1FF72", "#FFFFFF"]} />}
+                      {step.gradientColors && <GradientWave colors={step.gradientColors} />}
                     </div>
                     <div className={styles.cardContentActive}>
                       <div className={styles.iconContainer}>{step.icon}</div>
