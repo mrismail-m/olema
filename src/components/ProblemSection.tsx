@@ -18,15 +18,15 @@ export default function ProblemSection() {
         <div className={styles.header}>
           <div className={styles.eyebrowBadge}>The Problem</div>
           <h2 className={styles.title}>
-            You're Not Failing.<br />
+            You&apos;re Not Failing.<br />
             Your Systems Are.
           </h2>
           <p className={styles.description}>
-            You didn't build this business to spend your nights untangling WhatsApp threads. 
+            You didn&apos;t build this business to spend your nights untangling WhatsApp threads. 
             Or watching your best salesperson do data entry an intern could do. 
-            That 2 AM lead who never got a reply? That's not bad luck — it's a broken system quietly costing you money every single day you don't fix it.
+            That 2 AM lead who never got a reply? That&apos;s not bad luck — it&apos;s a broken system quietly costing you money every single day you don&apos;t fix it.
             <br /><br />
-            Here's what that's really costing you right now:
+            Here&apos;s what that&apos;s really costing you right now:
           </p>
         </div>
 
@@ -35,7 +35,7 @@ export default function ProblemSection() {
           <div className={styles.card}>
             <InboxCard fakeChats={fakeChats} />
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>You're losing 73% of your leads</h3>
+              <h3 className={styles.cardTitle}>You&apos;re losing 73% of your leads</h3>
               <p className={styles.cardText}>
                 ...in the first hour alone — because nobody replied fast enough. Olema replies in milliseconds, every time, so every dollar you spend on ads actually pays off.
               </p>
@@ -92,7 +92,7 @@ export default function ProblemSection() {
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>You could get back 2,400+ hours a year</h3>
               <p className={styles.cardText}>
-                That's what mid-market teams reclaim once Olema takes the busywork off their plate.
+                That&apos;s what mid-market teams reclaim once Olema takes the busywork off their plate.
               </p>
             </div>
           </div>

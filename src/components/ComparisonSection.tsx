@@ -22,7 +22,7 @@ export default function ComparisonSection() {
     <section className={styles.comparisonSection} id="comparison">
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <h2 className={styles.titleRow}>What you're doing now</h2>
+          <h2 className={styles.titleRow}>What you&apos;re doing now</h2>
           <span className={`${styles.vsBadge} ${caveat.className}`}>VS</span>
           <h2 className={styles.titleRow}>What you could have</h2>
         </div>

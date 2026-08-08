@@ -22,7 +22,7 @@ export default function Hero() {
         
         <div className={styles.actions}>
           <Link href="#audit" className={styles.primaryBtn}>
-            Show Me Where I'm Losing Money — Free
+            Show Me Where I&apos;m Losing Money — Free
           </Link>
           <Link href="#demo" className={styles.secondaryBtn}>
             See What This Looks Like For You <span className={styles.arrow}>&rarr;</span>

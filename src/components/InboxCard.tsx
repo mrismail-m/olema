@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AnimatedList from './AnimatedList';
 import styles from './ProblemSection.module.css';
 
-export default function InboxCard({ fakeChats }: { fakeChats: any[] }) {
+export default function InboxCard({ fakeChats }: { fakeChats: { title: string; message: string; time: string; avatar: string }[] }) {
   const [unread, setUnread] = useState<number | string>(0);
 
   return (

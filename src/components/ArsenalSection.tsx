@@ -103,7 +103,7 @@ export default function ArsenalSection() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>
-            Pick Your Biggest Headache.<br />We'll Solve It First.
+            Pick Your Biggest Headache.<br />We&apos;ll Solve It First.
           </h2>
         </div>
 
@@ -129,7 +129,7 @@ export default function ArsenalSection() {
           {/* Cards/Content - Right side */}
           <div className={styles.contentCol}>
             <p className={styles.cardsDescription}>
-              Eight agents, each built to fix one specific thing that's costing you time, money, or sleep. Start with the one that hurts most — or hand us the whole mess.
+              Eight agents, each built to fix one specific thing that&apos;s costing you time, money, or sleep. Start with the one that hurts most — or hand us the whole mess.
             </p>
             {activeGroup?.showcases.map((content) => (
               <div className={styles.showcaseCard} key={content.id}>
@@ -142,7 +142,7 @@ export default function ArsenalSection() {
                         <div className={styles.chatText}>Can I update my shipping address?</div>
                       </div>
                       <div className={`${styles.chatBubble} ${styles.chatAi}`}>
-                        <div className={styles.chatText}>Of course! I've sent a secure link to your phone to update it instantly.</div>
+                        <div className={styles.chatText}>Of course! I&apos;ve sent a secure link to your phone to update it instantly.</div>
                       </div>
                       <div className={`${styles.chatBubble} ${styles.chatCustomer} ${styles.chatDelay}`}>
                         <div className={styles.chatText}>Done, thanks for the quick help!</div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-this-alias, react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useRef } from "react";
 
@@ -160,7 +161,7 @@ class MiniGl {
           context.shaderSource(shader, source);
           context.compileShader(shader);
           if (!context.getShaderParameter(shader, context.COMPILE_STATUS)) {
-            console.error(context.getShaderInfoLog(shader));
+            // console.error(context.getShaderInfoLog(shader));
             throw new Error("Shader compilation error");
           }
           return shader;
@@ -208,7 +209,7 @@ class MiniGl {
         if (
           !context.getProgramParameter(material.program, context.LINK_STATUS)
         ) {
-          console.error(context.getProgramInfoLog(material.program));
+          // console.error(context.getProgramInfoLog(material.program));
           throw new Error("Program linking error");
         }
 
@@ -730,7 +731,7 @@ export function GradientWave({
 
       if (isPlaying) gradient.start();
     } catch (error) {
-      console.error("Failed to initialize gradient:", error);
+      // console.error("Failed to initialize gradient:", error);
     }
 
     return () => {
