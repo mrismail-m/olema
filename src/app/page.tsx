@@ -5,6 +5,7 @@ import ArsenalSection from "@/components/ArsenalSection";
 // import StorySection from "@/components/StorySection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import TrustSection from "@/components/TrustSection";
+import EnterpriseSection from "@/components/EnterpriseSection";
 import FAQSection from "@/components/FAQSection";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <ProblemSection />
       <ArsenalSection />
       <TrustSection />
+      {/* <EnterpriseSection /> */}
       <ComparisonSection />
       <HowItWorksSection />
       <FAQSection />
