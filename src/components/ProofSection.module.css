@@ -28,20 +28,16 @@
   margin: 0;
 }
 
-.whiteTitle,
-.whiteTitle :global(.split-parent),
-.whiteTitle :global(.split-word),
-.whiteTitle :global(.split-char) {
-  color: #ffffff !important;
-  display: inline !important;
+/* Ensure 'Run It.' is styled in light green across both word and char split nodes */
+.title :global(.split-word):nth-last-child(-n+2),
+.title :global(.split-word):nth-last-child(-n+2) :global(.split-char),
+.title > :global(.split-char):nth-last-child(-n+7) {
+  color: var(--secondary, #c1ff72) !important;
 }
 
-.greenTitle,
-.greenTitle :global(.split-parent),
-.greenTitle :global(.split-word),
-.greenTitle :global(.split-char) {
+.highlight {
   color: var(--secondary, #c1ff72) !important;
-  display: inline !important;
+  font-weight: 700;
 }
 
 .rightCol {

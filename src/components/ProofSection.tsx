@@ -9,36 +9,20 @@ export default function ProofSection() {
     <section className={styles.section} id="proof">
       <div className={styles.container}>
         <div className={styles.leftCol}>
-          <h2 className={styles.title}>
-            <SplitText
-              text="Don't Take Our Word For It. "
-              className={styles.whiteTitle}
-              delay={40}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="left"
-              tag="span"
-            />
-            <SplitText
-              text="Run It."
-              className={styles.greenTitle}
-              delay={40}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="left"
-              tag="span"
-            />
-          </h2>
+          <SplitText
+            text="Don't Take Our Word For It. Run It."
+            className={styles.title}
+            delay={40}
+            duration={0.6}
+            ease="power3.out"
+            splitType="words,chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="left"
+            tag="h2"
+          />
         </div>
 
         <motion.div 
