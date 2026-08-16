@@ -32,7 +32,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Right Column: Olema Light Green Typography (No BG) */}
+          {/* Right Column: Olema Minimal Title */}
           <div className={styles.rightCol}>
             <div className={styles.brandBanner}>
               <h2 className={styles.brandTitle}>Olema</h2>
