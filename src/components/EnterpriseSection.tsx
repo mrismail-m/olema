@@ -3,39 +3,34 @@
 import styles from './EnterpriseSection.module.css';
 import { motion } from 'motion/react';
 
+interface FeatureItem {
+  badge: string;
+  title: string;
+  description: string;
+  youGet: string;
+}
+
 export default function EnterpriseSection() {
-  const features = [
+  const features: FeatureItem[] = [
     {
+      badge: "SEAMLESS INTEGRATION",
       title: "Keep Everything You Already Use.",
-      description: "You don't have to rip out your CRM, your ERP, or any tool your team already knows. Your agent simply plugs in and starts working alongside what you've already got."
+      description: "You don't have to rip out your CRM, your ERP, or any tool your team already knows. Your agent simply plugs in and starts working alongside what you've already got.",
+      youGet: "All the upside, none of the painful switch."
     },
     {
+      badge: "REAL-TIME ANALYTICS",
       title: "See Exactly What You're Getting.",
-      description: "You'll never wonder if this is working. Your own dashboard shows you, in real time, every lead qualified, every ticket closed, every task done."
+      description: "You'll never wonder if this is working. Your own dashboard shows you, in real time, every lead qualified, every ticket closed, every task done.",
+      youGet: "Full visibility into your ROI, without doing any of the manual tracking yourself."
     },
     {
+      badge: "IRONCLAD PROTECTION",
       title: "Your Data Stays Yours. Full Stop.",
-      description: "Everything is encrypted, access-controlled, and built to meet enterprise standards. Your data is never used to train anything outside your business. Ever."
+      description: "Everything is encrypted, access-controlled, and built to meet enterprise standards. Your data is never used to train anything outside your business. Ever.",
+      youGet: "The freedom to scale fast without ever worrying about your reputation."
     }
   ];
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    },
-  };
 
   return (
     <section className={styles.section} id="enterprise">
@@ -47,6 +42,7 @@ export default function EnterpriseSection() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
+          <div className={styles.eyebrowBadge}>Enterprise Grade</div>
           <h2 className={styles.mainTitle}>Enterprise Friction Reducers</h2>
         </motion.div>
         
@@ -55,48 +51,147 @@ export default function EnterpriseSection() {
             <motion.div 
               key={index} 
               className={styles.stackedCard} 
-              style={{ top: `calc(15vh + ${index * 30}px)` }}
-              initial={{ opacity: 0, y: 50 }}
+              style={{ top: `calc(12vh + ${index * 24}px)` }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className={styles.cardInner}>
                 <div className={styles.cardLeft}>
+                  <div className={styles.badgeWrapper}>
+                    <span className={styles.badge}>{feature.badge}</span>
+                  </div>
                   <h3 className={styles.title}>{feature.title}</h3>
                   <p className={styles.description}>{feature.description}</p>
+                  
+                  <p className={styles.youGetLine}>
+                    <strong className={styles.youGetLabel}>You get:</strong> {feature.youGet}
+                  </p>
                 </div>
+                
                 <div className={styles.cardRight}>
-                  <div className={`${styles.illustration} ${styles[`ill${index + 1}`]}`}>
-                    {index === 0 ? (
-                      <div className={styles.puzzleContainer}>
-                        <div 
-                          className={styles.puzzlePiece}
-                          style={{ position: 'absolute', top: '50%', left: '50%', marginTop: '-60px', marginLeft: '-90px' }}
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120" fill="var(--primary)" style={{opacity:1}}>
-                            <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.65 1.65 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003c-.215.283-.401.604-.401.959c0 .332.278.598.61.578q2.867-.173 5.632-.676a.75.75 0 0 1 .878.645a49 49 0 0 1 .376 5.452a.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.65 1.65 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349c.283-.215.604-.401.959-.401c.31 0 .557.262.534.571a49 49 0 0 1-.595 4.845a.75.75 0 0 1-.61.61q-2.731.477-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959c.221-.29.349-.634.349-1.003c0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003c.215.283.401.604.401.959a.64.64 0 0 1-.658.643a49 49 0 0 1-4.708-.36a.75.75 0 0 1-.645-.878q.44-2.422.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401c-.29.221-.634.349-1.003.349c-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349c.283.215.604.401.959.401a.656.656 0 0 0 .659-.663a48 48 0 0 0-.31-4.82a.75.75 0 0 1 .83-.832q2.015.233 4.077.294a.64.64 0 0 0 .657-.642"/>
-                          </svg>
+                  <div className={styles.illustrationWrapper}>
+                    {index === 0 && (
+                      <div className={styles.integrationVisual}>
+                        <div className={styles.centralHub}>
+                          <div className={styles.hubCore}>Olema AI</div>
+                          <div className={styles.pulseRing}></div>
+                          <div className={styles.pulseRing2}></div>
                         </div>
-                        <div 
-                          className={styles.puzzlePiece}
-                          style={{ position: 'absolute', top: '50%', left: '50%', marginTop: '-60px', marginLeft: '0px', rotate: '90deg' }}
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120" fill="var(--secondary)" style={{opacity:1}}>
-                            <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.65 1.65 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003c-.215.283-.401.604-.401.959c0 .332.278.598.61.578q2.867-.173 5.632-.676a.75.75 0 0 1 .878.645a49 49 0 0 1 .376 5.452a.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.65 1.65 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349c.283-.215.604-.401.959-.401c.31 0 .557.262.534.571a49 49 0 0 1-.595 4.845a.75.75 0 0 1-.61.61q-2.731.477-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959c.221-.29.349-.634.349-1.003c0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003c.215.283.401.604.401.959a.64.64 0 0 1-.658.643a49 49 0 0 1-4.708-.36a.75.75 0 0 1-.645-.878q.44-2.422.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401c-.29.221-.634.349-1.003.349c-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349c.283.215.604.401.959.401a.656.656 0 0 0 .659-.663a48 48 0 0 0-.31-4.82a.75.75 0 0 1 .83-.832q2.015.233 4.077.294a.64.64 0 0 0 .657-.642"/>
-                          </svg>
+
+                        <div className={`${styles.nodeItem} ${styles.nodeCrm}`}>
+                          <div className={styles.nodeIcon}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="9" cy="7" r="4"></circle>
+                              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                          </div>
+                          <span>CRM System</span>
                         </div>
-                        <div 
-                          className={styles.puzzlePiece}
-                          style={{ position: 'absolute', top: '50%', left: '50%', marginTop: '30px', marginLeft: '-45px', rotate: '180deg' }}
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120" fill="#4b5563" style={{opacity:1}}>
-                            <path d="M11.25 5.337c0-.355-.186-.676-.401-.959a1.65 1.65 0 0 1-.349-1.003c0-1.036 1.007-1.875 2.25-1.875S15 2.34 15 3.375c0 .369-.128.713-.349 1.003c-.215.283-.401.604-.401.959c0 .332.278.598.61.578q2.867-.173 5.632-.676a.75.75 0 0 1 .878.645a49 49 0 0 1 .376 5.452a.657.657 0 0 1-.66.664c-.354 0-.675-.186-.958-.401a1.65 1.65 0 0 0-1.003-.349c-1.035 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349c.283-.215.604-.401.959-.401c.31 0 .557.262.534.571a49 49 0 0 1-.595 4.845a.75.75 0 0 1-.61.61q-2.731.477-5.555.642a.58.58 0 0 1-.611-.581c0-.355.186-.676.401-.959c.221-.29.349-.634.349-1.003c0-1.035-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003c.215.283.401.604.401.959a.64.64 0 0 1-.658.643a49 49 0 0 1-4.708-.36a.75.75 0 0 1-.645-.878q.44-2.422.629-4.924A.53.53 0 0 0 5.337 15c-.355 0-.676.186-.959.401c-.29.221-.634.349-1.003.349c-1.036 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.369 0 .713.128 1.003.349c.283.215.604.401.959.401a.656.656 0 0 0 .659-.663a48 48 0 0 0-.31-4.82a.75.75 0 0 1 .83-.832q2.015.233 4.077.294a.64.64 0 0 0 .657-.642"/>
-                          </svg>
+
+                        <div className={`${styles.nodeItem} ${styles.nodeErp}`}>
+                          <div className={styles.nodeIcon}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                              <line x1="8" y1="21" x2="16" y2="21"></line>
+                              <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                          </div>
+                          <span>ERP / Ops</span>
+                        </div>
+
+                        <div className={`${styles.nodeItem} ${styles.nodeComms}`}>
+                          <div className={styles.nodeIcon}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                          </div>
+                          <span>WhatsApp & Comms</span>
+                        </div>
+
+                        <div className={`${styles.nodeItem} ${styles.nodeDb}`}>
+                          <div className={styles.nodeIcon}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                              <path d="M21 19c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                              <path d="M3 5v14"></path>
+                              <path d="M21 5v14"></path>
+                            </svg>
+                          </div>
+                          <span>Database</span>
                         </div>
                       </div>
-                    ) : (
-                      <div className={styles.illShape}></div>
+                    )}
+
+                    {index === 1 && (
+                      <div className={styles.analyticsVisual}>
+                        <div className={styles.metricsGrid}>
+                          <div className={styles.metricCard}>
+                            <span className={styles.metricValue}>1,420+</span>
+                            <span className={styles.metricLabel}>Leads Qualified</span>
+                          </div>
+                          <div className={styles.metricCard}>
+                            <span className={styles.metricValue}>99.4%</span>
+                            <span className={styles.metricLabel}>Tickets Closed</span>
+                          </div>
+                          <div className={styles.metricCard}>
+                            <span className={styles.metricValue}>3,850</span>
+                            <span className={styles.metricLabel}>Tasks Done</span>
+                          </div>
+                          <div className={`${styles.metricCard} ${styles.highlightMetric}`}>
+                            <span className={styles.metricValue}>+340%</span>
+                            <span className={styles.metricLabel}>Verified ROI</span>
+                          </div>
+                        </div>
+
+                        <div className={styles.chartContainer}>
+                          <div className={styles.chartBarWrapper}>
+                            <div className={styles.chartBar} style={{ height: '40%' }}></div>
+                            <div className={styles.chartBar} style={{ height: '60%' }}></div>
+                            <div className={styles.chartBar} style={{ height: '50%' }}></div>
+                            <div className={styles.chartBar} style={{ height: '80%' }}></div>
+                            <div className={`${styles.chartBar} ${styles.chartBarActive}`} style={{ height: '96%' }}></div>
+                          </div>
+                          <div className={styles.liveIndicator}>
+                            <span className={styles.liveDot}></span>
+                            <span>Live ROI Dashboard</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {index === 2 && (
+                      <div className={styles.protectionVisual}>
+                        <div className={styles.shieldContainer}>
+                          <div className={styles.shieldIconWrapper}>
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                              <path d="M12 8v4"/>
+                              <path d="M12 16h.01"/>
+                            </svg>
+                          </div>
+                          <div className={styles.shieldGlow}></div>
+                        </div>
+
+                        <div className={styles.securityBadges}>
+                          <div className={styles.securityBadge}>
+                            <span className={styles.secDot}></span>
+                            <span>256-Bit End-to-End Encryption</span>
+                          </div>
+                          <div className={styles.securityBadge}>
+                            <span className={styles.secDot}></span>
+                            <span>Zero External Model Training</span>
+                          </div>
+                          <div className={styles.securityBadge}>
+                            <span className={styles.secDot}></span>
+                            <span>Role-Based Access Control</span>
+                          </div>
+                        </div>
+                      </div>
                     )}
                   </div>
                 </div>

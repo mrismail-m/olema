@@ -15,7 +15,7 @@ export default function Home() {
       <ProblemSection />
       <ArsenalSection />
       <TrustSection />
-      {/* <EnterpriseSection /> */}
+      <EnterpriseSection />
       <ComparisonSection />
       <HowItWorksSection />
       <FAQSection />
