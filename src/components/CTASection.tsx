@@ -3,6 +3,7 @@
 import type React from "react";
 import { useState } from "react";
 import { ArrowUpRight, Calendar } from "lucide-react";
+import { motion } from "motion/react";
 import styles from "./CTASection.module.css";
 
 export default function CTASection() {
@@ -137,12 +138,16 @@ export default function CTASection() {
           </span>
         </div>
 
-        {/* Interactive Main Heading & Circle Button */}
-        <div
+        {/* Interactive Main Heading & Circle Button with Motion Entrance */}
+        <motion.div
           className={styles.interactiveGroup}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={handleClick}
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{
             pointerEvents: isClicked ? "none" : "auto",
           }}
@@ -225,11 +230,15 @@ export default function CTASection() {
               }}
             />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Subtitle Description */}
-        <div
+        {/* Subtitle Description with Motion Entrance */}
+        <motion.div
           className={styles.footerGroup}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           style={{
             opacity: isClicked ? 0 : 1,
             transform: isClicked ? "translateY(20px)" : "translateY(0)",
@@ -239,7 +248,7 @@ export default function CTASection() {
           <p className={styles.description}>
             No pitch deck. No pressure. Just a free 30-minute conversation where we show you, specifically, what&apos;s slowing your business down — and what it would look like fixed.
           </p>
-        </div>
+        </motion.div>
 
       </div>
     </section>

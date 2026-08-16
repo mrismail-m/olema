@@ -1,7 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "motion/react";
 import styles from "./Footer.module.css";
+
+const words = ["SHOW", "ME", "WHAT'S", "POSSIBLE →"];
+
+const bottomLinks = [
+  { label: "AGENTS", href: "#agents", isExternal: false },
+  { label: "ENTERPRISE", href: "#enterprise", isExternal: false },
+  { label: "SECURITY & PRIVACY", href: "#security", isExternal: false },
+  { label: "FAQS", href: "#faqs", isExternal: false },
+  { label: "TWITTER", href: "https://twitter.com", isExternal: true },
+  { label: "LINKEDIN", href: "https://linkedin.com", isExternal: true },
+];
 
 export default function Footer() {
   const handleBookCall = (e: React.MouseEvent) => {
@@ -16,40 +28,107 @@ export default function Footer() {
         {/* Main 2-Column Section */}
         <div className={styles.mainGrid}>
           
-          {/* Left Column: Big 1-Word-Per-Line CTA */}
+          {/* Left Column: Animated 1-Word-Per-Line CTA */}
           <div className={styles.leftCol}>
             <nav className={styles.primaryNav}>
-              <a
+              <motion.a
                 href="https://cal.com/jatin-yadav05/15min"
                 onClick={handleBookCall}
                 className={styles.bigCtaLink}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                viewport={{ once: true, amount: 0.3 }}
               >
-                <span>SHOW</span>
-                <span>ME</span>
-                <span>WHAT&apos;S</span>
-                <span>POSSIBLE →</span>
-              </a>
+                {words.map((word, index) => (
+                  <span key={word} className={styles.wordWrapper}>
+                    <motion.span
+                      className={styles.animatedWord}
+                      variants={{
+                        initial: { y: "110%", opacity: 0 },
+                        animate: {
+                          y: 0,
+                          opacity: 1,
+                          transition: {
+                            duration: 0.7,
+                            ease: [0.16, 1, 0.3, 1],
+                            delay: index * 0.1,
+                          },
+                        },
+                        hover: {
+                          x: 10,
+                          transition: {
+                            duration: 0.3,
+                            ease: "easeOut",
+                            delay: index * 0.04,
+                          },
+                        },
+                      }}
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                ))}
+              </motion.a>
             </nav>
           </div>
 
-          {/* Right Column: Olema Minimal Title */}
+          {/* Right Column: Olema Title with Motion Reveal */}
           <div className={styles.rightCol}>
             <div className={styles.brandBanner}>
-              <h2 className={styles.brandTitle}>Olema</h2>
+              <motion.h2
+                className={styles.brandTitle}
+                initial={{ opacity: 0, y: 35, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+              >
+                Olema
+              </motion.h2>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Navigation Row (below HR) */}
-        <div className={styles.bottomRow}>
-          <Link href="#agents">AGENTS</Link>
-          <Link href="#enterprise">ENTERPRISE</Link>
-          <Link href="#security">SECURITY &amp; PRIVACY</Link>
-          <Link href="#faqs">FAQS</Link>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">TWITTER</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-        </div>
+        {/* Bottom Navigation Row with Staggered Motion */}
+        <motion.div
+          className={styles.bottomRow}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.3,
+              },
+            },
+          }}
+        >
+          {bottomLinks.map((link) => (
+            <motion.div
+              key={link.label}
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+                },
+              }}
+            >
+              {link.isExternal ? (
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  {link.label}
+                </a>
+              ) : (
+                <Link href={link.href}>{link.label}</Link>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
 
       </div>
     </footer>

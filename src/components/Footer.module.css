@@ -50,14 +50,19 @@
   cursor: pointer;
 }
 
-.bigCtaLink span {
+.wordWrapper {
   display: block;
-  transition: transform 0.35s ease, color 0.35s ease;
+  overflow: hidden;
+  line-height: 1.05;
 }
 
-.bigCtaLink:hover span {
+.animatedWord {
+  display: block;
+  transition: color 0.35s ease;
+}
+
+.bigCtaLink:hover .animatedWord {
   color: var(--secondary, #c1ff72);
-  transform: translateX(8px);
 }
 
 /* Right Column: Minimal Olema Title */
