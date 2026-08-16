@@ -2,102 +2,53 @@
 
 import Link from "next/link";
 import styles from "./Footer.module.css";
-import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const handleBookCall = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open("https://cal.com/jatin-yadav05/15min", "_blank");
+  };
 
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         
-        {/* Top Section: Brand & Nav Columns */}
-        <div className={styles.topSection}>
+        {/* Main 2-Column Section */}
+        <div className={styles.mainGrid}>
           
-          {/* Brand Info */}
-          <div className={styles.brandCol}>
-            <Link href="/" className={styles.logo}>
-              Olema
-            </Link>
-            <p className={styles.tagline}>
-              Agentic AI. Done for you. We build, deploy, and guarantee custom AI agents tailored to your business operations.
-            </p>
+          {/* Left Column: Big 1-Word-Per-Line CTA */}
+          <div className={styles.leftCol}>
+            <nav className={styles.primaryNav}>
+              <a
+                href="https://cal.com/jatin-yadav05/15min"
+                onClick={handleBookCall}
+                className={styles.bigCtaLink}
+              >
+                <span>SHOW</span>
+                <span>ME</span>
+                <span>WHAT&apos;S</span>
+                <span>POSSIBLE →</span>
+              </a>
+            </nav>
           </div>
 
-          {/* Navigation Columns */}
-          <div className={styles.navGrid}>
-            
-            {/* Column 1: Navigation */}
-            <div className={styles.navCol}>
-              <h4 className={styles.colTitle}>Navigation</h4>
-              <ul className={styles.linkList}>
-                <li><Link href="#agents">Custom Agents</Link></li>
-                <li><Link href="#how-it-works">How It Works</Link></li>
-                <li><Link href="#security">Security & Privacy</Link></li>
-                <li><Link href="#faqs">Frequently Asked</Link></li>
-                <li><Link href="#cta">Free 7-Day Trial</Link></li>
-              </ul>
+          {/* Right Column: Olema Light Green Typography (No BG) */}
+          <div className={styles.rightCol}>
+            <div className={styles.brandBanner}>
+              <h2 className={styles.brandTitle}>Olema</h2>
             </div>
-
-            {/* Column 2: Solutions */}
-            <div className={styles.navCol}>
-              <h4 className={styles.colTitle}>Solutions</h4>
-              <ul className={styles.linkList}>
-                <li><Link href="#enterprise">Enterprise AI</Link></li>
-                <li><Link href="#agents">Workflow Automation</Link></li>
-                <li><Link href="#security">SOC2 Governance</Link></li>
-                <li><Link href="#contact">Custom Deployment</Link></li>
-              </ul>
-            </div>
-
-            {/* Column 3: Contact & Direct */}
-            <div className={styles.navCol}>
-              <h4 className={styles.colTitle}>Get In Touch</h4>
-              <ul className={styles.linkList}>
-                <li>
-                  <a href="mailto:hello@olema.ai" className={styles.emailLink}>
-                    hello@olema.ai <ArrowUpRight className={styles.linkIcon} />
-                  </a>
-                </li>
-                <li>
-                  <a href="https://cal.com/jatin-yadav05/15min" target="_blank" rel="noopener noreferrer" className={styles.emailLink}>
-                    Book Intro Call <ArrowUpRight className={styles.linkIcon} />
-                  </a>
-                </li>
-              </ul>
-            </div>
-
           </div>
+
         </div>
 
-        {/* Divider */}
-        <div className={styles.divider} />
-
-        {/* Bottom Bar */}
-        <div className={styles.bottomBar}>
-          <p className={styles.copyright}>
-            © {currentYear} Olema AI. All rights reserved.
-          </p>
-
-          <div className={styles.legalLinks}>
-            <Link href="#">Privacy Policy</Link>
-            <span className={styles.dotSeparator}>•</span>
-            <Link href="#">Terms of Service</Link>
-            <span className={styles.dotSeparator}>•</span>
-            <Link href="#">Security</Link>
-          </div>
-
-          <div className={styles.socials}>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
-              X / TWITTER
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              LINKEDIN
-            </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              GITHUB
-            </a>
-          </div>
+        {/* Bottom Navigation Row (below HR) */}
+        <div className={styles.bottomRow}>
+          <Link href="#agents">AGENTS</Link>
+          <Link href="#enterprise">ENTERPRISE</Link>
+          <Link href="#security">SECURITY &amp; PRIVACY</Link>
+          <Link href="#faqs">FAQS</Link>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">TWITTER</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
         </div>
 
       </div>

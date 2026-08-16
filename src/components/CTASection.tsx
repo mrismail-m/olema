@@ -227,7 +227,7 @@ export default function CTASection() {
           </div>
         </div>
 
-        {/* Subtitle Description & Bottom Link */}
+        {/* Subtitle Description */}
         <div
           className={styles.footerGroup}
           style={{
@@ -239,12 +239,6 @@ export default function CTASection() {
           <p className={styles.description}>
             No pitch deck. No pressure. Just a free 30-minute conversation where we show you, specifically, what&apos;s slowing your business down — and what it would look like fixed.
           </p>
-          <span
-            className={styles.bottomLink}
-            onClick={handleClick}
-          >
-            SHOW ME WHAT&apos;S POSSIBLE →
-          </span>
         </div>
 
       </div>

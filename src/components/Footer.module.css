@@ -1,219 +1,135 @@
 .footer {
   width: 100%;
   background-color: var(--primary, #1b363f);
-  color: var(--primary-foreground, #ffffff);
-  padding: 5rem 5vw 3rem 5vw;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 3.5rem 5vw 2.5rem 5vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-sans);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 3rem;
 }
 
-.topSection {
+/* 2-Column Main Layout */
+.mainGrid {
   display: grid;
-  grid-template-columns: 1.2fr 2fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: flex-end;
 }
 
-.brandCol {
+/* Left Column: Big Navigation Links */
+.leftCol {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
+  justify-content: space-between;
 }
 
-.logo {
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: #ffffff;
+.primaryNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.bigCtaLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.logo:hover {
-  color: var(--secondary, #c1ff72);
-}
-
-.tagline {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 360px;
+  font-size: clamp(2.8rem, 5.8vw, 4.5rem);
   font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  width: fit-content;
+  cursor: pointer;
 }
 
-.statusBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(193, 255, 114, 0.2);
-  padding: 0.4rem 0.9rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 0.5rem;
+.bigCtaLink span {
+  display: block;
+  transition: transform 0.35s ease, color 0.35s ease;
 }
 
-.statusDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--secondary, #c1ff72);
-  box-shadow: 0 0 8px var(--secondary, #c1ff72);
-}
-
-/* Nav Columns Grid */
-.navGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-}
-
-.navCol {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.colTitle {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 0;
-}
-
-.linkList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.linkList li a {
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.linkList li a:hover {
+.bigCtaLink:hover span {
   color: var(--secondary, #c1ff72);
-  transform: translateX(3px);
+  transform: translateX(8px);
 }
 
-.emailLink {
-  color: var(--secondary, #c1ff72) !important;
-  font-weight: 500;
-}
-
-.linkIcon {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.25s ease;
-}
-
-.emailLink:hover .linkIcon {
-  transform: translate(2px, -2px);
-}
-
-/* Divider */
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Bottom Bar */
-.bottomBar {
+/* Right Column: Olema Title (No BG) */
+.rightCol {
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.brandBanner {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.brandTitle {
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--secondary, #c1ff72);
+  text-shadow: 0 0 35px rgba(193, 255, 114, 0.2);
+  margin: 0;
+  line-height: 0.9;
+  user-select: none;
+}
+
+/* Bottom Navigation Row (below HR) */
+.bottomRow {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.copyright {
-  margin: 0;
-}
-
-.legalLinks {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.legalLinks a {
-  color: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-
-.legalLinks a:hover {
-  color: var(--secondary, #c1ff72);
-}
-
-.dotSeparator {
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.socials {
-  display: flex;
-  align-items: center;
   gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
 }
 
-.socials a {
-  font-size: 0.75rem;
+.bottomRow a {
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-.socials a:hover {
+.bottomRow a:hover {
   color: var(--secondary, #c1ff72);
+  letter-spacing: 0.22em;
 }
 
-@media (max-width: 900px) {
-  .topSection {
+@media (max-width: 1024px) {
+  .mainGrid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .navGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .bottomBar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
+  .rightCol {
+    justify-content: flex-start;
   }
 }
 
-@media (max-width: 600px) {
-  .navGrid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+@media (max-width: 640px) {
   .footer {
-    padding: 4rem 1.5rem 2.5rem 1.5rem;
+    padding: 3rem 1.5rem 2rem 1.5rem;
+  }
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
   }
 }
