@@ -8,6 +8,7 @@ import TrustSection from "@/components/TrustSection";
 import EnterpriseSection from "@/components/EnterpriseSection";
 import ProofSection from "@/components/ProofSection";
 import FAQSection from "@/components/FAQSection";
+import CTASection from "@/components/CTASection";
 
 export default function Home() {
   return (
@@ -18,9 +19,10 @@ export default function Home() {
       <TrustSection />
       <EnterpriseSection />
       <ComparisonSection />
-      <HowItWorksSection />
       <ProofSection />
+      <HowItWorksSection />
       <FAQSection />
+      <CTASection />
     </main>
   );
 }
