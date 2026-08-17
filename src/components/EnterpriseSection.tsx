@@ -168,7 +168,7 @@ export default function EnterpriseSection() {
                       <div className={styles.protectionVisual}>
                         <div className={styles.shieldContainer}>
                           <div className={styles.shieldIconWrapper}>
-                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c1ff72" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#00b4d8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                               <path d="M12 8v4"/>
                               <path d="M12 16h.01"/>

@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background-color: var(--primary, #1b363f);
+  background-color: var(--primary, #03045e);
   color: #ffffff;
   padding: 3.5rem 5vw 2.5rem 5vw;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -62,7 +62,7 @@
 }
 
 .bigCtaLink:hover .animatedWord {
-  color: var(--secondary, #c1ff72);
+  color: var(--secondary, #00b4d8);
 }
 
 /* Right Column: Minimal Olema Title */
@@ -85,7 +85,7 @@
   font-size: clamp(4.5rem, 10vw, 8.5rem);
   font-weight: 300;
   letter-spacing: -0.03em;
-  color: var(--secondary, #c1ff72);
+  color: var(--secondary, #00b4d8);
   margin: 0;
   line-height: 0.85;
   user-select: none;
@@ -113,7 +113,7 @@
 }
 
 .bottomRow a:hover {
-  color: var(--secondary, #c1ff72);
+  color: var(--secondary, #00b4d8);
   letter-spacing: 0.22em;
 }
 

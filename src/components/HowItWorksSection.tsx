@@ -16,7 +16,7 @@ const steps = [
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
     ),
-    gradientColors: ["#C1FF72", "#FFFFFF", "#C1FF72", "#FFFFFF"],
+    gradientColors: ["#03045E", "#FFFFFF", "#023E8A", "#FFFFFF"],
   },
   {
     id: "step-2",
@@ -28,7 +28,7 @@ const steps = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
       </svg>
     ),
-    gradientColors: ["#72C1FF", "#FFFFFF", "#72C1FF", "#FFFFFF"],
+    gradientColors: ["#0077B6", "#FFFFFF", "#0096C7", "#FFFFFF"],
   },
   {
     id: "step-3",
@@ -41,7 +41,7 @@ const steps = [
         <line x1="12" y1="3" x2="12" y2="21" />
       </svg>
     ),
-    gradientColors: ["#B472FF", "#FFFFFF", "#B472FF", "#FFFFFF"],
+    gradientColors: ["#00B4D8", "#FFFFFF", "#48CAE4", "#FFFFFF"],
   },
   {
     id: "step-4",
@@ -53,7 +53,7 @@ const steps = [
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    gradientColors: ["#FF72B4", "#FFFFFF", "#FF72B4", "#FFFFFF"],
+    gradientColors: ["#90E0EF", "#FFFFFF", "#ADE8F4", "#FFFFFF"],
   },
 ];
 

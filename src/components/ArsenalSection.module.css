@@ -15,7 +15,7 @@
   z-index: -1;
   background-color: transparent;
   --bg-center-y: 0%;
-  background-image: radial-gradient(circle at 50% var(--bg-center-y), #c1ff72 0%, #c1ff72 8.7%, #c8ff80 11.3%, #c8ff80 18.7%, #cfff8e 21.3%, #cfff8e 28.7%, #d6ff9c 31.3%, #d6ff9c 38.7%, #dcffaa 41.3%, #dcffaa 48.7%, #e3ffb8 51.3%, #e3ffb8 58.7%, #eaffc6 61.3%, #eaffc6 68.7%, #f1ffd4 71.3%, #f1ffd4 78.7%, #f8ffe2 81.3%, #f8ffe2 88.7%, #ffffff 91.3%, #ffffff 100%);
+  background-image: radial-gradient(circle at 50% var(--bg-center-y), #48cae4 0%, #48cae4 8.7%, #60d3e8 11.3%, #60d3e8 18.7%, #78dcec 21.3%, #78dcec 28.7%, #90e0ef 31.3%, #90e0ef 38.7%, #9fe4f1 41.3%, #9fe4f1 48.7%, #ade8f4 51.3%, #ade8f4 58.7%, #bceef6 61.3%, #bceef6 68.7%, #caf0f8 71.3%, #caf0f8 78.7%, #e5f8fc 81.3%, #e5f8fc 88.7%, #ffffff 91.3%, #ffffff 100%);
   opacity: 1;
 }
 
@@ -197,7 +197,7 @@
 
 .showcaseCard {
   background: rgba(255, 255, 255, 0.7);
-  background-image: radial-gradient(circle at 100% 100%, rgba(193, 255, 114, 0.25) 0%, rgba(193, 255, 114, 0.08) 40%, rgba(255, 255, 255, 0.7) 70%);
+  background-image: radial-gradient(circle at 100% 100%, rgba(0, 180, 216, 0.25) 0%, rgba(0, 180, 216, 0.08) 40%, rgba(255, 255, 255, 0.7) 70%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(0, 0, 0, 0.04);
@@ -307,7 +307,7 @@
 }
 
 .chatAi .chatText {
-  background: #c1ff72;
+  background: #00b4d8;
   color: #181818;
   border-bottom-right-radius: 2px;
 }
@@ -510,14 +510,14 @@
   left: 10px;
   right: 10px;
   height: 40px;
-  background: #c1ff72;
+  background: #00b4d8;
   border-radius: 6px;
   padding: 6px 10px;
   font-size: 0.7rem;
   color: #181818;
   font-weight: 600;
-  border-left: 3px solid #8cc540;
-  box-shadow: 0 4px 12px rgba(193, 255, 114, 0.4);
+  border-left: 3px solid #0077b6;
+  box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
   
   opacity: 0;
   transform: translateY(-10px) scale(0.95);
@@ -578,7 +578,7 @@
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  border: 1.5px solid #c1ff72;
+  border: 1.5px solid #00b4d8;
   opacity: 0;
   animation: radarPulse 3s linear infinite;
 }
@@ -620,10 +620,10 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #c1ff72;
+  background: #00b4d8;
   margin-top: 4px;
   flex-shrink: 0;
-  box-shadow: 0 0 0 0 rgba(193, 255, 114, 0.4);
+  box-shadow: 0 0 0 0 rgba(0, 180, 216, 0.4);
   animation: pulseWarning 2s infinite;
 }
 
@@ -635,9 +635,9 @@
 }
 
 @keyframes pulseWarning {
-  0% { box-shadow: 0 0 0 0 rgba(193, 255, 114, 0.5); }
-  70% { box-shadow: 0 0 0 5px rgba(193, 255, 114, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(193, 255, 114, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(0, 180, 216, 0.5); }
+  70% { box-shadow: 0 0 0 5px rgba(0, 180, 216, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 180, 216, 0); }
 }
 
 @keyframes alertToastPop {
@@ -654,7 +654,7 @@
 /* 5. Order */
 .cardIllustration[data-type="order"] { --t-base: translate(-50%, -50%) rotate(45deg); }
 .cardIllustration[data-type="order"] .cssShapeMain {
-  width: 60px; height: 60px; background: rgba(193, 255, 114, 0.2); border: 1px solid #c1ff72; border-radius: 12px; top: 50%; left: 50%; z-index: 3;
+  width: 60px; height: 60px; background: rgba(0, 180, 216, 0.2); border: 1px solid #00b4d8; border-radius: 12px; top: 50%; left: 50%; z-index: 3;
 }
 .cardIllustration[data-type="order"] .cssShapeSecondary {
   width: 60px; height: 60px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; top: 45%; left: 50%; z-index: 2;
@@ -665,10 +665,10 @@
 
 /* 6. Healthcare */
 .cardIllustration[data-type="healthcare"] .cssShapeMain {
-  width: 20px; height: 70px; background: #c1ff72; border-radius: 10px; top: 50%; left: 50%; box-shadow: 0 0 20px rgba(193, 255, 114, 0.3);
+  width: 20px; height: 70px; background: #00b4d8; border-radius: 10px; top: 50%; left: 50%; box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 .cardIllustration[data-type="healthcare"] .cssShapeSecondary {
-  width: 70px; height: 20px; background: #c1ff72; border-radius: 10px; top: 50%; left: 50%; box-shadow: 0 0 20px rgba(193, 255, 114, 0.3);
+  width: 70px; height: 20px; background: #00b4d8; border-radius: 10px; top: 50%; left: 50%; box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 .cardIllustration[data-type="healthcare"] .cssShapeTertiary {
   width: 90px; height: 90px; border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 50%; top: 50%; left: 50%;
@@ -676,13 +676,13 @@
 
 /* 7. Custom */
 .cardIllustration[data-type="custom"] .cssShapeMain {
-  width: 50px; height: 50px; background: rgba(193, 255, 114, 0.2); border: 2px solid #c1ff72; border-radius: 12px; top: 40%; left: 40%;
+  width: 50px; height: 50px; background: rgba(0, 180, 216, 0.2); border: 2px solid #00b4d8; border-radius: 12px; top: 40%; left: 40%;
 }
 .cardIllustration[data-type="custom"] .cssShapeSecondary {
   width: 40px; height: 40px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; top: 60%; left: 60%;
 }
 .cardIllustration[data-type="custom"] .cssShapeTertiary {
-  width: 60px; height: 2px; background: linear-gradient(90deg, #c1ff72, transparent); top: 50%; left: 50%; --t-ter: translate(-50%, -50%) rotate(45deg);
+  width: 60px; height: 2px; background: linear-gradient(90deg, #00b4d8, transparent); top: 50%; left: 50%; --t-ter: translate(-50%, -50%) rotate(45deg);
 }
 
 /* 8. Ticket Auto-Triage Animation */
@@ -708,7 +708,7 @@
   left: 0;
   width: 100%;
   height: 30px;
-  background: linear-gradient(to bottom, transparent, rgba(193, 255, 114, 0.4) 95%, #c1ff72 100%);
+  background: linear-gradient(to bottom, transparent, rgba(0, 180, 216, 0.4) 95%, #00b4d8 100%);
   z-index: 10;
   opacity: 0;
   animation: triageScanQueue 4s infinite;
@@ -823,8 +823,8 @@
     background: rgba(255, 255, 255, 0.3);
   }
   45%, 90% {
-    border-color: #c1ff72;
-    background: rgba(193, 255, 114, 0.15);
+    border-color: #00b4d8;
+    background: rgba(0, 180, 216, 0.15);
   }
   100% {
     border-color: rgba(255, 255, 255, 0.4);
@@ -834,7 +834,7 @@
 
 @keyframes triageBadgeBg {
   0%, 40% { background: rgba(0,0,0,0.05); color: #888; }
-  45%, 90% { background: #c1ff72; color: #181818; }
+  45%, 90% { background: #00b4d8; color: #181818; }
   100% { background: rgba(0,0,0,0.05); color: #888; }
 }
 
@@ -883,8 +883,8 @@
   max-width: 180px;
 }
 .orderStep {
-  background: rgba(193, 255, 114, 0.15);
-  border: 1px solid rgba(193, 255, 114, 0.4);
+  background: rgba(0, 180, 216, 0.15);
+  border: 1px solid rgba(0, 180, 216, 0.4);
   border-radius: 6px;
   padding: 0.3rem 0.5rem;
   backdrop-filter: blur(8px);
@@ -905,7 +905,7 @@
 .orderStepIcon {
   width: 14px;
   height: 14px;
-  background: #c1ff72;
+  background: #00b4d8;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1033,20 +1033,20 @@
   width: 6px; height: 6px; border-radius: 50%; background: #aaa;
 }
 .healthStatusSynced {
-  background: rgba(193, 255, 114, 0.15);
+  background: rgba(0, 180, 216, 0.15);
   color: var(--foreground);
-  border: 1px solid #c1ff72;
+  border: 1px solid #00b4d8;
   animation: showSyncedHealth 5s infinite;
   opacity: 0;
 }
 .healthStatusDotGreen {
-  width: 6px; height: 6px; border-radius: 50%; background: #c1ff72;
-  box-shadow: 0 0 6px #c1ff72;
+  width: 6px; height: 6px; border-radius: 50%; background: #00b4d8;
+  box-shadow: 0 0 6px #00b4d8;
 }
 .healthScanner {
   position: absolute;
   top: -20px; left: 0; width: 100%; height: 30px;
-  background: linear-gradient(to bottom, transparent, rgba(193,255,114,0.4));
+  background: linear-gradient(to bottom, transparent, rgba(0,180,216,0.4));
   animation: healthScan 5s infinite;
   opacity: 0;
   z-index: 5;
@@ -1070,7 +1070,7 @@
 }
 @keyframes healthCardGlow {
   0%, 40% { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.2); }
-  45%, 90% { border-color: rgba(193, 255, 114, 0.4); background: rgba(193, 255, 114, 0.05); }
+  45%, 90% { border-color: rgba(0, 180, 216, 0.4); background: rgba(0, 180, 216, 0.05); }
   100% { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.2); }
 }
 
@@ -1099,15 +1099,15 @@
   color: #888;
 }
 .customBoxGreen {
-  background: rgba(193, 255, 114, 0.15);
-  border: 1px solid #c1ff72;
+  background: rgba(0, 180, 216, 0.15);
+  border: 1px solid #00b4d8;
   backdrop-filter: blur(4px);
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   font-size: 0.6rem;
   font-weight: 600;
   color: var(--foreground);
-  box-shadow: 0 0 10px rgba(193, 255, 114, 0.2);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
   opacity: 0;
   animation: showCustomResult 5s infinite;
 }
@@ -1126,8 +1126,8 @@
 .customLineGlow {
   position: absolute;
   top: 0; left: 0; height: 100%; width: 10px;
-  background: #c1ff72;
-  box-shadow: 0 0 5px #c1ff72;
+  background: #00b4d8;
+  box-shadow: 0 0 5px #00b4d8;
   animation: lineShoot 5s infinite;
   opacity: 0;
 }
@@ -1142,16 +1142,16 @@
 .customOrbCoreMini {
   width: 16px;
   height: 16px;
-  background: #c1ff72;
+  background: #00b4d8;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(193, 255, 114, 0.6);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.6);
   animation: orbPulseMini 5s infinite;
 }
 .customOrbRing1Mini {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 1px dashed #c1ff72;
+  border: 1px dashed #00b4d8;
   border-radius: 50%;
   animation: spinSlow 4s linear infinite;
 }
@@ -1168,9 +1168,9 @@
   46%, 100% { left: 100%; opacity: 0; }
 }
 @keyframes orbPulseMini {
-  0%, 25% { transform: scale(1); box-shadow: 0 0 10px rgba(193, 255, 114, 0.4); }
-  35% { transform: scale(1.3); box-shadow: 0 0 20px rgba(193, 255, 114, 0.8); }
-  50%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(193, 255, 114, 0.4); }
+  0%, 25% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 180, 216, 0.4); }
+  35% { transform: scale(1.3); box-shadow: 0 0 20px rgba(0, 180, 216, 0.8); }
+  50%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 180, 216, 0.4); }
 }
 @keyframes spinSlow {
   100% { transform: rotate(360deg); }

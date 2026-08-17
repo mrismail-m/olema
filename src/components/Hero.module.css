@@ -22,9 +22,9 @@
   width: 100%;
   height: calc(100% + 200px);
   z-index: -1;
-  background-color: #c1ff72;
+  background-color: #48cae4;
   --bg-center-y: 380px;
-  background-image: radial-gradient(circle at 50% var(--bg-center-y), #c1ff72 0%, #c1ff72 8.7%, #c8ff80 11.3%, #c8ff80 18.7%, #cfff8e 21.3%, #cfff8e 28.7%, #d6ff9c 31.3%, #d6ff9c 38.7%, #dcffaa 41.3%, #dcffaa 48.7%, #e3ffb8 51.3%, #e3ffb8 58.7%, #eaffc6 61.3%, #eaffc6 68.7%, #f1ffd4 71.3%, #f1ffd4 78.7%, #f8ffe2 81.3%, #f8ffe2 88.7%, #ffffff 91.3%, #ffffff 100%);
+  background-image: radial-gradient(circle at 50% var(--bg-center-y), #48cae4 0%, #48cae4 8.7%, #60d3e8 11.3%, #60d3e8 18.7%, #78dcec 21.3%, #78dcec 28.7%, #90e0ef 31.3%, #90e0ef 38.7%, #9fe4f1 41.3%, #9fe4f1 48.7%, #ade8f4 51.3%, #ade8f4 58.7%, #bceef6 61.3%, #bceef6 68.7%, #caf0f8 71.3%, #caf0f8 78.7%, #e5f8fc 81.3%, #e5f8fc 88.7%, #ffffff 91.3%, #ffffff 100%);
   opacity: 1;
 }
 
