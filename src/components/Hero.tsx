@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.backgroundEffects}></div>
+      <div className={styles.backgroundEffects} />
       
       <div className={styles.container}>
         <div className={styles.eyebrow}>AGENTIC AI • DONE FOR YOU</div>

@@ -1,16 +1,24 @@
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  --primary: #03045e;
+  --foreground: #181818;
+  --charcoal-1: #181818;
+  --charcoal-2: #65717c;
+  --charcoal-3: #737374;
+  --primary: #181818;
+  --primary-hover: #333333;
   --primary-foreground: #ffffff;
-  --secondary: #00b4d8;
+  --secondary: #181818;
+  --secondary-dark: #000000;
   --secondary-foreground: #ffffff;
-  --accent-blue: #0077b6;
-  --accent-sky: #48cae4;
-  --accent-ice: #caf0f8;
-  --font-sans: "Canva Sans", system-ui, -apple-system, sans-serif;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(0, 0, 0, 0.08);
+  --accent-blue: #181818;
+  --accent-sky: #f4f4f5;
+  --accent-sky-dark: #e4e4e7;
+  --accent-ice: #f8f8f8;
+  --border-1: #e4e4e7;
+  --border-2: #e4e4e7;
+  --border-color: #e4e4e7;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --glass-bg: rgba(255, 255, 255, 0.85);
 }
 
 html {
@@ -44,3 +52,4 @@ a {
   color: inherit;
   text-decoration: none;
 }
+

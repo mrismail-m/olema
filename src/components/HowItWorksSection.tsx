@@ -1,106 +1,128 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./HowItWorksSection.module.css";
-import { GradientWave } from "./GradientWave";
+import { motion } from "motion/react";
 
 const steps = [
   {
     id: "step-1",
-    num: "01",
-    title: "We Learn Your Business",
-    description: "You tell us where things are breaking. We map every place leads slip through, orders stall, or your team's time gets wasted. No forms to fill out, no prep work on your end — just a conversation.",
+    tab: "WEEK 1",
+    num: "1",
+    title: "Discover",
+    description: "Workshops, market and user research, technical scoping — ending in a costed roadmap.",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-4-4" />
       </svg>
     ),
-    gradientColors: ["#03045E", "#FFFFFF", "#023E8A", "#FFFFFF"],
+    rowClass: styles.zrow1,
+    isAccent: false,
   },
   {
     id: "step-2",
-    num: "02",
-    title: "We Build It For You",
-    description: "You don't touch a single line of code. Our team builds and connects your agent to whatever you already use — CRM, ERP, calendar, WhatsApp. You give feedback, we polish it.",
+    tab: "WEEK 2–4",
+    num: "2",
+    title: "Design",
+    description: "Flows, prototypes and a reusable design system — tested with real users before build.",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <rect x="4" y="4" width="16" height="16" rx="3" />
+        <path d="M4 14h16" />
+        <path d="M10 14v6" />
       </svg>
     ),
-    gradientColors: ["#0077B6", "#FFFFFF", "#0096C7", "#FFFFFF"],
+    rowClass: styles.zrow2,
+    isAccent: false,
   },
   {
     id: "step-3",
-    num: "03",
-    title: "You Try It, Completely Free",
-    description: "Your agent goes live and gets to work for a full 7 days — no cost, no card, no commitment. We track exactly how it performs, fine-tune it in real time, and hand you a clear report so you can see, in numbers, what it's doing for you. After 7 days, you decide if you're ready to scale up. We'll never auto-charge you.",
+    tab: "WEEK 5–11",
+    num: "3",
+    title: "Build",
+    description: "Weekly releases with demos every Friday. Multi-tenant architecture, billing, admin.",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <line x1="12" y1="3" x2="12" y2="21" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <path d="m8 8-4 4 4 4" />
+        <path d="m16 8 4 4-4 4" />
       </svg>
     ),
-    gradientColors: ["#00B4D8", "#FFFFFF", "#48CAE4", "#FFFFFF"],
+    rowClass: styles.zrow3,
+    isAccent: false,
   },
   {
     id: "step-4",
-    num: "04",
-    title: "We Stay With You",
-    description: "Once you're in, we don't disappear. You get a direct line to the team who built your agent, plus continuous support, ongoing optimization, and regular reporting — so it keeps getting sharper long after day one, and you always know it's working for you.",
+    tab: "ONGOING",
+    num: "4",
+    title: "Launch & grow",
+    description: "CI/CD, monitoring, SEO and growth programs tied to your revenue numbers.",
     icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+        <path d="M3 17l6-6 4 4 8-8" />
+        <path d="M14 7h7v7" />
       </svg>
     ),
-    gradientColors: ["#90E0EF", "#FFFFFF", "#ADE8F4", "#FFFFFF"],
+    rowClass: styles.zrow4,
+    isAccent: true,
   },
 ];
 
 export default function HowItWorksSection() {
-  const [activeStep, setActiveStep] = useState(steps[1].id);
-
   return (
     <section className={styles.section} id="how-it-works">
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>The Process</h2>
-        </div>
-        <div className={styles.cardsContainer}>
-          {steps.map((step) => {
-            const isActive = activeStep === step.id;
-            return (
-              <div
-                key={step.id}
-                className={`${styles.card} ${isActive ? styles.activeCard : ""}`}
-                onMouseEnter={() => setActiveStep(step.id)}
-                onClick={() => setActiveStep(step.id)}
-              >
-                {isActive ? (
-                  <>
-                    <div 
-                      className={styles.cardImage} 
-                    >
-                      {step.gradientColors && <GradientWave colors={step.gradientColors} />}
-                    </div>
-                    <div className={styles.cardContentActive}>
-                      <div className={styles.iconContainer}>{step.icon}</div>
-                      <h3 className={styles.cardTitle}>{step.title}</h3>
-                      <p className={styles.cardDescription}>{step.description}</p>
-                    </div>
-                  </>
-                ) : (
-                  <div className={styles.cardContentInactive}>
-                    <span className={styles.stepNum}>{step.num}</span>
-                    <div className={styles.cardBottom}>
-                      <div className={styles.iconContainer}>{step.icon}</div>
-                      <h3 className={styles.cardTitleInactive}>{step.title}</h3>
-                    </div>
+      <div className={styles.xwrap}>
+        <motion.div 
+          className={styles.xeyebrow}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          • How we work
+        </motion.div>
+        
+        <motion.h2 
+          className={styles.xh2}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          From brief <em>to launch.</em>
+        </motion.h2>
+
+        <div className={styles.zig}>
+          {steps.map((step, idx) => (
+            <motion.div 
+              key={step.id} 
+              className={`${styles.zrow} ${step.rowClass}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.12 }}
+            >
+              {idx > 0 && (
+                <>
+                  <i className={`${styles.zseg} ${styles.v1}`} />
+                  <i className={`${styles.zseg} ${styles.h}`} />
+                  <i className={`${styles.zseg} ${styles.v2}`} />
+                </>
+              )}
+              
+              <div className={`${styles.zcard} ${step.isAccent ? styles.acc : ""}`}>
+                <div className={styles.ztabVertical}>
+                  <span>{step.tab}</span>
+                </div>
+                <div className={styles.zbody}>
+                  <div className={styles.zhd}>
+                    <span className={styles.zico}>{step.icon}</span>
+                    <b>{step.num} · {step.title}</b>
                   </div>
-                )}
+                  <p>{step.description}</p>
+                </div>
               </div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

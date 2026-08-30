@@ -47,7 +47,7 @@
 .vsBadge {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 400;
-  color: var(--secondary);
+  color: var(--foreground, #181818);
   position: absolute;
   top: 50%;
   right: -5%; /* Brings it closer to the text */
@@ -72,7 +72,7 @@
 
 .cardLight {
   position: relative;
-  background: #f4f4f5;
+  background: #f4f4f6;
   border: 6px solid white;
   border-radius: 20px;
   padding: 0.5rem;
@@ -83,11 +83,11 @@
 
 .cardDark {
   position: relative;
-  background: var(--primary);
-  border: 6px solid var(--primary);
+  background: var(--charcoal-1, #181818);
+  border: 6px solid var(--charcoal-1, #181818);
   border-radius: 20px;
   padding: 0.5rem;
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
 }
@@ -172,7 +172,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #6a2e35; /* dark reddish brown from image */
+  background: #65717c; /* Charcoal 02 */
   color: white;
   border-radius: 4px;
   width: 24px;
@@ -183,8 +183,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--secondary); /* secondary color for the icon box */
-  color: var(--secondary-foreground);
+  background: #181818;
+  color: #ffffff;
   border-radius: 4px;
   width: 24px;
   height: 24px;

@@ -1,7 +1,7 @@
 .scrollSection {
   height: 150vh;
   position: relative;
-  background-color: #000;
+  background-color: var(--charcoal-1, #181818);
   width: 100vw;
   z-index: 1;
 }

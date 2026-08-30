@@ -6,7 +6,6 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [splashFinished, setSplashFinished] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -15,35 +14,17 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
-    // Hide splash overlay after all CSS animations complete
-    const splashTimeout = setTimeout(() => {
-      setSplashFinished(true);
-    }, 2500);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(splashTimeout);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <div className={`${styles.splashOverlay} ${splashFinished ? styles.hiddenOverlay : ""}`}></div>
       <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${isMobileMenuOpen ? styles.menuOpenNav : ""}`}>
         <div className={styles.container}>
           <div className={styles.logoContainer}>
-            <div className={styles.wordMask}>
-              <div className={styles.wordTrack}>
-                <div className={styles.logo}>Agentic AI</div>
-                <div className={styles.logo}>Done</div>
-                <div className={styles.logo}>For</div>
-                <div className={styles.logo}>You</div>
-                <div className={styles.logo}>
-                  <Link href="/">Olema</Link>
-                </div>
-              </div>
-            </div>
+            <Link href="/" className={styles.logoText}>
+              Olema
+            </Link>
           </div>
           
           <nav className={styles.navLinks}>
@@ -54,11 +35,6 @@ export default function Navbar() {
           </nav>
           
           <div className={styles.actions}>
-            {!splashFinished && (
-              <div className={styles.progressTrack}>
-                <div className={styles.progressBar}></div>
-              </div>
-            )}
             <div className={styles.desktopContact}>
               <Link href="#contact" className={styles.contactBtn}>
                 Contact Us

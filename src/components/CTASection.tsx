@@ -87,22 +87,22 @@ export default function CTASection() {
             <div
               className={styles.bookCallInner}
               style={{
-                borderColor: isButtonHovered ? "var(--secondary, #00b4d8)" : "rgba(255, 255, 255, 0.2)",
-                backgroundColor: isButtonHovered ? "var(--secondary, #00b4d8)" : "transparent",
-                boxShadow: isButtonHovered ? "0 0 30px rgba(0, 180, 216, 0.35)" : "none",
+                borderColor: isButtonHovered ? "var(--primary, #1077d7)" : "rgba(255, 255, 255, 0.2)",
+                backgroundColor: isButtonHovered ? "var(--primary, #1077d7)" : "transparent",
+                boxShadow: isButtonHovered ? "0 0 30px rgba(16, 119, 215, 0.35)" : "none",
               }}
             >
               <Calendar
                 className={styles.bookCallIcon}
                 strokeWidth={1.5}
                 style={{
-                  color: isButtonHovered ? "#03045e" : "#ffffff",
+                  color: "#ffffff",
                 }}
               />
               <span
                 className={styles.bookCallText}
                 style={{
-                  color: isButtonHovered ? "#03045e" : "#ffffff",
+                  color: "#ffffff",
                 }}
               >
                 Book a call
@@ -111,7 +111,7 @@ export default function CTASection() {
                 className={styles.bookCallIcon}
                 strokeWidth={1.5}
                 style={{
-                  color: isButtonHovered ? "#03045e" : "#ffffff",
+                  color: "#ffffff",
                   transform: isButtonHovered ? "translate(3px, -3px) scale(1.1)" : "translate(0, 0) scale(1)",
                 }}
               />
@@ -188,8 +188,8 @@ export default function CTASection() {
               <div
                 className={styles.circleBg}
                 style={{
-                  borderColor: isClicked ? "#ffffff" : isHovered ? "var(--secondary, #00b4d8)" : "rgba(255, 255, 255, 0.25)",
-                  backgroundColor: isClicked ? "transparent" : isHovered ? "var(--secondary, #00b4d8)" : "transparent",
+                  borderColor: isClicked ? "#ffffff" : isHovered ? "var(--primary, #1077d7)" : "rgba(255, 255, 255, 0.25)",
+                  backgroundColor: isClicked ? "transparent" : isHovered ? "var(--primary, #1077d7)" : "transparent",
                   transform: isClicked ? "scale(3)" : isHovered ? "scale(1.1)" : "scale(1)",
                   opacity: isClicked ? 0 : 1,
                   transitionDuration: isClicked ? "700ms" : "500ms",
@@ -204,7 +204,7 @@ export default function CTASection() {
                       ? "translate(2px, -2px)"
                       : "translate(0, 0)",
                   opacity: isClicked ? 0 : 1,
-                  color: isHovered && !isClicked ? "#03045e" : "#ffffff",
+                  color: "#ffffff",
                   transitionDuration: isClicked ? "600ms" : "500ms",
                 }}
               />

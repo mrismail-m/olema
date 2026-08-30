@@ -1,7 +1,7 @@
 .section {
   padding: 8rem 2rem;
-  background-color: #fafafa;
-  color: #111827;
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--foreground, #181818);
   position: relative;
 }
 
@@ -23,46 +23,51 @@
   display: inline-flex;
   align-items: center;
   padding: 0.4rem 1rem;
-  background: rgba(3, 4, 94, 0.06);
-  color: var(--primary, #03045e);
+  background: rgba(24, 24, 24, 0.05);
+  color: #181818;
   border-radius: 100px;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border: 1px solid rgba(3, 4, 94, 0.12);
+  border: 1px solid rgba(24, 24, 24, 0.12);
 }
 
 .mainTitle {
   font-size: clamp(2.2rem, 4.5vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #111827;
+  color: var(--foreground, #181818);
   line-height: 1.1;
 }
 
 .stackContainer {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding-bottom: 12vh;
+  gap: 3.5rem;
+  padding-bottom: 15vh;
+  position: relative;
 }
 
 .stackedCard {
   position: sticky;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 28px;
-  padding: 3.5rem;
-  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--border-2, #e5e9f1);
+  border-radius: 24px;
+  padding: 2.25rem 2.5rem;
+  box-shadow: 
+    0 20px 45px -15px rgba(0, 0, 0, 0.07),
+    0 0 10px rgba(0, 0, 0, 0.02);
   z-index: 1;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center top;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cardInner {
   display: flex;
   flex-direction: row;
-  gap: 3.5rem;
+  gap: 2.25rem;
   align-items: center;
 }
 
@@ -74,7 +79,7 @@
 }
 
 .badgeWrapper {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .badge {
@@ -83,41 +88,41 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #03045e;
-  background: rgba(0, 180, 216, 0.35);
-  border: 1px solid rgba(0, 180, 216, 0.6);
+  color: #1077d7;
+  background: rgba(16, 119, 215, 0.1);
+  border: 1px solid rgba(16, 119, 215, 0.3);
   padding: 0.4rem 0.9rem;
   border-radius: 100px;
 }
 
 .title {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 800;
   line-height: 1.2;
-  color: #111827;
-  margin-bottom: 1.25rem;
+  color: var(--foreground, #181818);
+  margin-bottom: 0.85rem;
   letter-spacing: -0.02em;
 }
 
 .description {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--charcoal-2, #65717c);
   margin-bottom: 0;
 }
 
 .youGetLine {
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #374151;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-2, #e5e9f1);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--charcoal-2, #65717c);
 }
 
 .youGetLabel {
   font-weight: 700;
-  color: #111827;
+  color: var(--foreground, #181818);
 }
 
 .cardRight {
@@ -129,16 +134,19 @@
 
 .illustrationWrapper {
   width: 100%;
-  min-height: 280px;
-  background: var(--primary, #03045e);
+  min-height: 200px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: 20px;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
 }
 
 /* --- Visual 1: Integration Hub --- */
@@ -161,25 +169,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(0, 180, 216, 0.4);
-  border: 3px solid var(--secondary, #00b4d8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid #181818;
 }
 
 .hubCore {
   font-weight: 800;
   font-size: 0.85rem;
-  color: var(--primary, #03045e);
+  color: var(--charcoal-1, #181818);
   text-align: center;
 }
 
 .pulseRing, .pulseRing2 {
   position: absolute;
   inset: -10px;
-  border: 2px stroke var(--secondary, #00b4d8);
   border-radius: 50%;
   animation: ripple 3s ease-out infinite;
   opacity: 0.4;
-  border: 1.5px dashed rgba(0, 180, 216, 0.6);
+  border: 1.5px dashed rgba(24, 24, 24, 0.4);
 }
 
 .pulseRing2 {
@@ -194,23 +201,25 @@
 .nodeItem {
   position: absolute;
   z-index: 4;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 0.4rem 0.85rem;
   border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ffffff;
+  color: #181818;
   font-size: 0.78rem;
   font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .nodeIcon {
   display: flex;
   align-items: center;
-  color: var(--secondary, #00b4d8);
+  color: #181818;
 }
 
 .nodeCrm {
@@ -257,45 +266,48 @@
 }
 
 .metricCard {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 12px;
   padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 .highlightMetric {
-  background: rgba(0, 180, 216, 0.15);
-  border-color: rgba(0, 180, 216, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(24, 24, 24, 0.2);
 }
 
 .highlightMetric .metricValue {
-  color: var(--secondary, #00b4d8);
+  color: #181818;
 }
 
 .metricValue {
   font-size: 1.35rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #181818;
   line-height: 1.1;
 }
 
 .metricLabel {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #65717c;
   margin-top: 0.2rem;
 }
 
 .chartContainer {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
   border-radius: 12px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .chartBarWrapper {
@@ -309,14 +321,14 @@
 
 .chartBar {
   flex: 1;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   transition: height 0.5s ease;
 }
 
 .chartBarActive {
-  background: var(--secondary, #00b4d8);
-  box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+  background: #181818;
+  box-shadow: 0 0 12px rgba(24, 24, 24, 0.25);
 }
 
 .liveIndicator {
@@ -324,16 +336,16 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #65717c;
   font-weight: 600;
 }
 
 .liveDot {
   width: 7px;
   height: 7px;
-  background: #22c55e;
+  background: #181818;
   border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
+  box-shadow: 0 0 6px rgba(24, 24, 24, 0.3);
   animation: pulseDot 2s infinite;
 }
 
@@ -363,19 +375,21 @@
   z-index: 2;
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(0, 180, 216, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .shieldGlow {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: rgba(0, 180, 216, 0.15);
+  background: rgba(0, 0, 0, 0.05);
   filter: blur(20px);
   border-radius: 50%;
 }
@@ -388,24 +402,26 @@
 }
 
 .securityBadge {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 0.5rem 0.85rem;
   border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #ffffff;
+  color: #181818;
   font-size: 0.82rem;
   font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .secDot {
   width: 6px;
   height: 6px;
-  background: var(--secondary, #00b4d8);
+  background: #181818;
   border-radius: 50%;
-  box-shadow: 0 0 6px var(--secondary, #00b4d8);
+  box-shadow: 0 0 6px rgba(24, 24, 24, 0.3);
 }
 
 /* --- Responsive styles --- */
