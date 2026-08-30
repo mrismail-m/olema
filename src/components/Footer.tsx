@@ -28,7 +28,7 @@ export default function Footer() {
         {/* Main 2-Column Section */}
         <div className={styles.mainGrid}>
           
-          {/* Left Column: Animated 1-Word-Per-Line CTA */}
+          {/* Left Column: Big CTA */}
           <div className={styles.leftCol}>
             <nav className={styles.primaryNav}>
               <motion.a
@@ -57,6 +57,7 @@ export default function Footer() {
                         },
                         hover: {
                           x: 10,
+                          opacity: 1,
                           transition: {
                             duration: 0.3,
                             ease: "easeOut",
@@ -73,7 +74,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Right Column: Olema Title with Motion Reveal */}
+          {/* Right Column: Olema Title aligned right of CTA */}
           <div className={styles.rightCol}>
             <div className={styles.brandBanner}>
               <motion.h2
@@ -90,7 +91,7 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Navigation Row with Staggered Motion */}
+        {/* Bottom Navigation Row */}
         <motion.div
           className={styles.bottomRow}
           initial="hidden"
