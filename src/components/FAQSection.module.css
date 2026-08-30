@@ -1,217 +1,138 @@
 .section {
-  padding: 60px 1rem;
-  background-color: #fafafa;
-  color: var(--foreground);
+  padding: 100px 1.5rem;
+  background-color: var(--background, #ffffff);
+  color: var(--foreground, #181818);
 }
 
-.outerGrid {
-  max-width: 1200px;
+.container {
+  max-width: 760px;
   margin: 0 auto;
-  border-left: 2px dashed rgba(0,0,0,0.08);
-  border-right: 2px dashed rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
 }
 
-.gridRow {
-  display: flex;
-  width: 100%;
-  border-bottom: 2px dashed rgba(0,0,0,0.08);
-}
-
-.gridRow:first-child {
-  border-top: 2px dashed rgba(0,0,0,0.08);
-}
-
-.cellOuter {
-  flex: 1;
-}
-
-.cellInner {
-  width: 100%;
-  max-width: 700px;
-  border-left: 2px dashed rgba(0,0,0,0.08);
-  border-right: 2px dashed rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.gridRow:nth-child(1) .cellInner {
-  padding: 4rem 1rem 3rem;
-}
-
-.gridRow:nth-child(2) .cellInner {
-  padding: 3rem 1rem;
-}
-
-.gridRow:nth-child(3) .cellInner {
-  padding: 2.5rem 1rem;
-}
-
-
-/* Content Styles */
-
+/* Header Styles */
 .header {
   text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--charcoal-2, #65717c);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.03em;
+  color: var(--foreground, #181818);
   margin-bottom: 1rem;
 }
 
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--charcoal-2, #65717c);
+}
+
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.6);
-  max-width: 400px;
+  color: var(--charcoal-2, #65717c);
+  max-width: 520px;
   margin: 0 auto;
 }
 
+/* Accordion Styles */
 .faqList {
-  width: 100%;
-  max-width: 600px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  border-top: 1px solid var(--border-1, #e4e4e7);
 }
 
 .faqItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.questionBubble {
-  align-self: flex-start;
-  background-color: var(--primary, #1077d7);
-  color: #ffffff;
-  padding: 0.8rem 1.25rem;
-  border-radius: 20px;
-  border-bottom-left-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  max-width: 90%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.questionBubble:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-
-.questionText {
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.plusIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  font-size: 1.1rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.answerWrapper {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.75rem;
-  align-self: flex-start;
-  max-width: 95%;
-  margin-top: 0.25rem;
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.avatarContainer {
-  width: 28px;
-  height: 28px;
-  background-color: #e5e5e5;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-bottom: 0.25rem;
-}
-
-.avatar {
-  width: 14px;
-  height: 14px;
-  color: #666;
-}
-
-.answerBubble {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 1.25rem 1.5rem;
-  border-radius: 20px;
-  border-bottom-left-radius: 4px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.secondaryButton {
-  padding: 0.8rem 1.5rem;
-  background-color: #e5e5e5;
-  color: #333;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
+  border-bottom: 1px solid var(--border-1, #e4e4e7);
   transition: background-color 0.2s ease;
 }
 
-.secondaryButton:hover {
-  background-color: #d5d5d5;
-}
-
-.primaryButton {
-  padding: 0.8rem 1.5rem;
-  background-color: var(--primary, #1077d7);
-  color: #ffffff;
+.questionButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  background: transparent;
   border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  text-align: left;
+  gap: 1rem;
+  outline: none;
+  color: var(--foreground, #181818);
 }
 
-.primaryButton:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
+.questionButton:hover .questionText {
+  color: var(--charcoal-1, #181818);
 }
+
+.questionText {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--foreground, #181818);
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.iconWrapper {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--accent-sky, #f4f4f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+  background-color: var(--foreground, #181818);
+}
+
+.iconOpen .chevronIcon {
+  color: var(--background, #ffffff);
+}
+
+.chevronIcon {
+  width: 15px;
+  height: 15px;
+  color: var(--foreground, #181818);
+  transition: color 0.25s ease;
+}
+
+.answerWrapper {
+  overflow: hidden;
+}
+
+.answerContent {
+  padding: 0 0.5rem 0.875rem 0.5rem;
+}
+
+.answerText {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--charcoal-2, #65717c);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 1rem;
+  }
+}
+

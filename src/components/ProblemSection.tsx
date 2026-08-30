@@ -16,10 +16,9 @@ export default function ProblemSection() {
     <section className={styles.problemSection} id="problem">
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.eyebrowBadge}>The Problem</div>
+          <span className={styles.eyebrow}>• THE PROBLEM</span>
           <h2 className={styles.title}>
-            You&apos;re Not Failing.<br />
-            Your Systems Are.
+            You&apos;re not failing. <em>Your systems are.</em>
           </h2>
           <p className={styles.description}>
             You didn&apos;t build this business to spend your nights untangling WhatsApp threads. 

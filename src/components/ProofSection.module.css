@@ -19,18 +19,29 @@
   flex-direction: column;
 }
 
+.eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #a1a1aa;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
 .title {
-  font-size: clamp(2.6rem, 4.2vw, 4rem);
-  font-weight: 800;
-  line-height: 1.12;
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: #ffffff;
   margin: 0;
 }
 
-.accent {
+.title em {
+  font-style: italic;
+  font-weight: 400;
   color: #a1a1aa;
-  display: inline;
 }
 
 .highlight {

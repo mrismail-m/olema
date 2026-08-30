@@ -204,8 +204,10 @@ export default function EnterpriseSection() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className={styles.eyebrowBadge}>Enterprise Grade</div>
-          <h2 className={styles.mainTitle}>Enterprise Friction Reducers</h2>
+          <span className={styles.eyebrow}>• ENTERPRISE GRADE</span>
+          <h2 className={styles.mainTitle}>
+            Enterprise grade. <em>Zero friction.</em>
+          </h2>
         </motion.div>
         
         <div className={styles.stackContainer}>

@@ -15,7 +15,7 @@ export default function ProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            Don&apos;t Take Our Word For It. <span className={styles.accent}>Run It.</span>
+            Don&apos;t take our word for it. <em>Run it.</em>
           </motion.h2>
         </div>
 

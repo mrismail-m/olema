@@ -1,7 +1,4 @@
 import styles from './ComparisonSection.module.css';
-import { Caveat } from 'next/font/google';
-
-const caveat = Caveat({ subsets: ['latin'], weight: '700' });
 
 export default function ComparisonSection() {
   const rightNowItems = [
@@ -21,10 +18,11 @@ export default function ComparisonSection() {
   return (
     <section className={styles.comparisonSection} id="comparison">
       <div className={styles.container}>
-        <div className={styles.titleContainer}>
-          <h2 className={styles.titleRow}>What you&apos;re doing now</h2>
-          <span className={`${styles.vsBadge} ${caveat.className}`}>VS</span>
-          <h2 className={styles.titleRow}>What you could have</h2>
+        <div className={styles.header}>
+          <span className={styles.eyebrow}>• COMPARISON</span>
+          <h2 className={styles.title}>
+            What you&apos;re doing now. <em>VS what you could have.</em>
+          </h2>
         </div>
         
         <div className={styles.cardsContainer}>

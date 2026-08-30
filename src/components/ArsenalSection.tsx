@@ -102,8 +102,9 @@ export default function ArsenalSection() {
       <div className={styles.backgroundEffects}></div>
       <div className={styles.container}>
         <div className={styles.header}>
+          <span className={styles.eyebrow}>• THE ARSENAL</span>
           <h2 className={styles.title}>
-            Pick Your Biggest Headache.<br />We&apos;ll Solve It First.
+            Pick your biggest headache.<br /><em>We&apos;ll solve it first.</em>
           </h2>
         </div>
 
